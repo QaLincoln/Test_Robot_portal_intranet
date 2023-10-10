@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1 (Python 3.11.3 on win32)" generated="20231004 10:47:37.272" rpa="false" schemaversion="4">
+<suite id="s1" name="Cadastro Clientes" source="C:\Users\quems\Desktop\Fixpay_projetos_atualizados\portal-intranet\test_robot_framework\Cadastro\cadastro_clientes.robot">
+<test id="s1-t1" name="Caso de Teste 3: Testando todos os filtros: Aba Aceitos - Fazer filtro por CPF" line="18">
+<kw name="Abrir Site intranet" library="location" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>browser=chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231004 10:47:37.489" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20231004 10:47:37.489" endtime="20231004 10:47:40.373"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231004 10:47:40.373" endtime="20231004 10:47:40.500"/>
+</kw>
+<status status="PASS" starttime="20231004 10:47:37.489" endtime="20231004 10:47:40.500"/>
+</kw>
+<kw name="Dado fazendo login" library="location">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>url=${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231004 10:47:40.504" level="INFO">Opening url 'http://localhost:8080/auth/login'</msg>
+<status status="PASS" starttime="20231004 10:47:40.503" endtime="20231004 10:47:42.401"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231004 10:47:44.402" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231004 10:47:42.401" endtime="20231004 10:47:44.402"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>locator=//input[contains(@type,'text')]</arg>
+<arg>text=RAFAEL.PINHEIRO@FIXPAY.COM.BR</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231004 10:47:44.404" level="INFO">Typing text 'RAFAEL.PINHEIRO@FIXPAY.COM.BR' into text field '//input[contains(@type,'text')]'.</msg>
+<status status="PASS" starttime="20231004 10:47:44.403" endtime="20231004 10:47:44.638"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>locator=//input[contains(@type,'password')]</arg>
+<arg>text=123456</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231004 10:47:44.638" level="INFO">Typing text '123456' into text field '//input[contains(@type,'password')]'.</msg>
+<status status="PASS" starttime="20231004 10:47:44.638" endtime="20231004 10:47:44.777"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=//button[@class='btn btn-primary w-100 fw-semibold'][contains(.,'Entrar')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231004 10:47:44.777" level="INFO">Clicking element '//button[@class='btn btn-primary w-100 fw-semibold'][contains(.,'Entrar')]'.</msg>
+<status status="PASS" starttime="20231004 10:47:44.777" endtime="20231004 10:47:44.863"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>text=Bem-vindo ao intranet do Parcelaconta, RAFAEL PINHEIRO!</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231004 10:47:44.864" endtime="20231004 10:47:45.833"/>
+</kw>
+<status status="PASS" starttime="20231004 10:47:40.502" endtime="20231004 10:47:45.833"/>
+</kw>
+<kw name="Quando entrar na tela cadastro_clientes" library="location">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${SIDEBAR_CADASTRO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231004 10:47:45.834" level="INFO">Clicking element '//span[contains(.,'Cadastros')]'.</msg>
+<status status="PASS" starttime="20231004 10:47:45.834" endtime="20231004 10:47:46.009"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${SIDEBAR_CADASTRO_CLIENTES}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231004 10:47:46.009" endtime="20231004 10:47:46.393"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${SIDEBAR_CADASTRO_CLIENTES}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231004 10:47:46.394" level="INFO">Clicking element 'class=text-itens-sidebar'.</msg>
+<status status="PASS" starttime="20231004 10:47:46.393" endtime="20231004 10:47:46.560"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>text=Bem-vindo ao intranet do Parcelaconta, RAFAEL PINHEIRO!</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231004 10:47:46.560" endtime="20231004 10:47:46.586"/>
+</kw>
+<kw name="Wait Until Location Is" library="SeleniumLibrary">
+<arg>expected=${URL_CADASTRO}</arg>
+<doc>Waits until the current URL is ``expected``.</doc>
+<status status="PASS" starttime="20231004 10:47:46.590" endtime="20231004 10:47:46.594"/>
+</kw>
+<status status="PASS" starttime="20231004 10:47:45.833" endtime="20231004 10:47:46.594"/>
+</kw>
+<kw name="E deve consegui filtrar por cpf" library="cadastro_clientes_resourcer">
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231004 10:47:51.595" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20231004 10:47:46.594" endtime="20231004 10:47:51.595"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${CAMPO_CPF}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231004 10:47:51.595" level="INFO">Clicking element '//input[contains(@aria-controls,'search-cpf-multiselect-options')]'.</msg>
+<status status="PASS" starttime="20231004 10:47:51.595" endtime="20231004 10:47:51.899"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>id=search-cpf-multiselect-options</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231004 10:47:51.899" endtime="20231004 10:47:51.953"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>class=multiselect-option</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231004 10:47:51.954" level="INFO">Clicking element 'class=multiselect-option'.</msg>
+<msg timestamp="20231004 10:47:52.408" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-93.png"&gt;&lt;img src="selenium-screenshot-93.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231004 10:47:52.408" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=117.0.5938.132)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7430F78A2+54818]
+	(No symbol) [0x00007FF743066AD2]
+	(No symbol) [0x00007FF742F1D8ED]
+	(No symbol) [0x00007FF742F5F8E5]
+	(No symbol) [0x00007FF742F5571F]
+	(No symbol) [0x00007FF742F7EAAA]
+	(No symbol) [0x00007FF742F55036]
+	(No symbol) [0x00007FF742F7ECC0]
+	(No symbol) [0x00007FF742F975A2]
+	(No symbol) [0x00007FF742F7E883]
+	(No symbol) [0x00007FF742F53691]
+	(No symbol) [0x00007FF742F548D4]
+	GetHandleVerifier [0x00007FF74345B9A2+3610402]
+	GetHandleVerifier [0x00007FF7434B1870+3962352]
+	GetHandleVerifier [0x00007FF7434A9D5F+3930847]
+	GetHandleVerifier [0x00007FF743193656+693206]
+	(No symbol) [0x00007FF743071638]
+	(No symbol) [0x00007FF74306D944]
+	(No symbol) [0x00007FF74306DA72]
+	(No symbol) [0x00007FF74305E123]
+	BaseThreadInitThunk [0x00007FF9E181257D+29]
+	RtlUserThreadStart [0x00007FF9E1ECAA68+40]
+</msg>
+<status status="FAIL" starttime="20231004 10:47:51.953" endtime="20231004 10:47:52.412"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231004 10:47:52.412" endtime="20231004 10:47:52.412"/>
+</kw>
+<status status="FAIL" starttime="20231004 10:47:46.594" endtime="20231004 10:47:52.413"/>
+</kw>
+<tag>cpf</tag>
+<status status="FAIL" starttime="20231004 10:47:37.485" endtime="20231004 10:47:52.413">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=117.0.5938.132)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7430F78A2+54818]
+	(No symbol) [0x00007FF743066AD2]
+	(No symbol) [0x00007FF742F1D8ED]
+	(No symbol) [0x00007FF742F5F8E5]
+	(No symbol) [0x00007FF742F5571F]
+	(No symbol) [0x00007FF742F7EAAA]
+	(No symbol) [0x00007FF742F55036]
+	(No symbol) [0x00007FF742F7ECC0]
+	(No symbol) [0x00007FF742F975A2]
+	(No symbol) [0x00007FF742F7E883]
+	(No symbol) [0x00007FF742F53691]
+	(No symbol) [0x00007FF742F548D4]
+	GetHandleVerifier [0x00007FF74345B9A2+3610402]
+	GetHandleVerifier [0x00007FF7434B1870+3962352]
+	GetHandleVerifier [0x00007FF7434A9D5F+3930847]
+	GetHandleVerifier [0x00007FF743193656+693206]
+	(No symbol) [0x00007FF743071638]
+	(No symbol) [0x00007FF74306D944]
+	(No symbol) [0x00007FF74306DA72]
+	(No symbol) [0x00007FF74305E123]
+	BaseThreadInitThunk [0x00007FF9E181257D+29]
+	RtlUserThreadStart [0x00007FF9E1ECAA68+40]
+</status>
+</test>
+<status status="FAIL" starttime="20231004 10:47:37.277" endtime="20231004 10:47:52.415"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">cpf</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Cadastro Clientes">Cadastro Clientes</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
