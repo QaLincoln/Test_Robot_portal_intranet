@@ -1,5 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
+#Force Tags      todos_login
 
 
 *** Variables ***

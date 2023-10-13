@@ -1,9 +1,10 @@
 *** Settings ***
-Resource        ../location.robot
+Resource        ../Configuracao/location.robot
 Library         SeleniumLibrary
 Library         DatabaseLibrary
 Library         String
 Library         Collections
+#Force Tags      todos_usuario_intranet
 
 
 *** Variables ***

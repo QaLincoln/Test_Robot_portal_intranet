@@ -1,6 +1,7 @@
 *** Settings ***
-Resource    login_resourcer.robot
+Resource    Resourcer/resourcer_login.robot
 Test Setup    Abrir Site
+Test Tags       todos_login
 
 *** Test Cases ***
 Caso de Teste 1: Acessando o localhost e fazendo login

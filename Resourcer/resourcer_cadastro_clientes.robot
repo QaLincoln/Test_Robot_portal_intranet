@@ -1,9 +1,11 @@
 *** Settings ***
-Resource        ../location.robot
+Resource        ../Configuracao/location.robot
 Library         SeleniumLibrary
 Library         DatabaseLibrary
 Library         String
 Library         Collections
+
+#Force Tags      todos_cadastro_Clientes
 
 #Library         OperatingSystem
 
@@ -24,12 +26,13 @@ ${LIMPAR_FILTRO}        //button[contains(@id,'limpar-filtros')]
 #Caso de teste 1
 E deve consegui filtrar por id
     Sleep    5
-    Input Text                      locator=${CAMPO_ID}   text=3000
+    Input Text                      locator=${CAMPO_ID}   text=300
     Click Element                   locator=${APLICAR_FILTRO}
     Wait Until Page Contains        text=3000
     Click Element                   locator=${LIMPAR_FILTRO}
     Wait Until Element Is Visible   locator=//span[contains(.,'TesteLincoln')]
     Sleep    2
+
 #    Run                             ${FECHAR_JANELA}          #Fechar janela do browser quando terminar
 #Caso de Teste 2
 E deve consegui filtrar por cliente
@@ -89,7 +92,7 @@ E deve consegui filtrar por datas
     Click Element                       locator=${LIMPAR_FILTRO}
     Wait Until Element Is Visible       locator=//span[contains(.,'TesteLincoln')]
     Sleep    2
-#Caso de Teste 6
+
 
 
 
@@ -104,3 +107,6 @@ E deve consegui filtrar por datas
 #    ${elementos}    Get WebElements    //table//tr
 #    ${quantidade}    Get Length    ${elementos}
 #    Log    Total de elementos na tabela: ${quantidade}
+
+#run keyword And continue On failure
+#pass execute if ${variavel}    message= texto a colocar

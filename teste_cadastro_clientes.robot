@@ -1,10 +1,11 @@
 *** Settings ***
-Resource        cadastro_clientes_resourcer.robot
-Resource        ../location.robot
-Resource        ../banco.robot
+Resource        Resourcer/resourcer_cadastro_clientes.robot
+Resource        Configuracao/location.robot
+Resource        Configuracao/banco.robot
 Test Setup      Abrir Site intranet
 Test Teardown   Fechar o navegador
-Test Tags       todos
+Test Tags       todos_cadastro_Clientes
+
 
 *** Test Cases ***
 

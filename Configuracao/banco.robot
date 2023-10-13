@@ -69,17 +69,23 @@ Comparar Dados do Banco com totalizadores: Aceitos, Pendentes, Não_validados e 
     ${expected_number1} =    Set Variable    ${numero1}   # Número de referência a ser comparado
     Should Be Equal As Integers    ${dynamic_number1}    ${expected_number1}
 
+
     ${dynamic_number2} =    Get Text    (//h2[contains(@class,'fw-bold text-center text-black')])[2]    # Localiza o número dinâmico na página
     ${expected_number2} =    Set Variable    ${numero2}   # Número de referência a ser comparado
     Should Be Equal As Integers    ${dynamic_number2}    ${expected_number2}
+
 
     ${dynamic_number3} =    Get Text    (//h2[contains(@class,'fw-bold text-center text-black')])[3]    # Localiza o número dinâmico na página
     ${expected_number3} =    Set Variable    ${numero3}   # Número de referência a ser comparado
     Should Be Equal As Integers    ${dynamic_number3}    ${expected_number3}
 
+
     ${dynamic_number4} =    Get Text    (//h2[contains(@class,'fw-bold text-center text-black')])[4]    # Localiza o número dinâmico na página
     ${expected_number4} =    Set Variable    ${numero4}   # Número de referência a ser comparado
     Should Be Equal As Integers    ${dynamic_number4}    ${expected_number4}
+
+    Pass Execution     message= Valores do banco estâo igual aos totalizadores!
+
 ############################################################################################################
 Quando inserir Dados no Banco usuario_intranet
     [Documentation]    Insere dados na tabela de exemplo.

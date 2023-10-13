@@ -1,7 +1,8 @@
 *** Settings ***
-Resource    dashboard_resourcer.robot
-Resource    ../location.robot
+Resource    Resourcer/resourcer_dashboard.robot
+Resource    Configuracao/location.robot
 Test Setup    Abrir Site intranet
+Test Tags       todos_dashboard
 
 *** Test Cases ***
 Caso de Teste 1: Acessando a tela de dashboard
