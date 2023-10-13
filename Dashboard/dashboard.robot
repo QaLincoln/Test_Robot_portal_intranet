@@ -1,6 +1,6 @@
 *** Settings ***
 Resource    dashboard_resourcer.robot
-Resource    ../todos_login.robot
+Resource    ../location.robot
 Test Setup    Abrir Site intranet
 
 *** Test Cases ***

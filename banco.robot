@@ -80,3 +80,13 @@ Comparar Dados do Banco com totalizadores: Aceitos, Pendentes, Não_validados e 
     ${dynamic_number4} =    Get Text    (//h2[contains(@class,'fw-bold text-center text-black')])[4]    # Localiza o número dinâmico na página
     ${expected_number4} =    Set Variable    ${numero4}   # Número de referência a ser comparado
     Should Be Equal As Integers    ${dynamic_number4}    ${expected_number4}
+############################################################################################################
+Quando inserir Dados no Banco usuario_intranet
+    [Documentation]    Insere dados na tabela de exemplo.
+    Conectar ao Banco de Dados
+    ${result}    Execute SQL String    INSERT INTO public.intranet_users(id, name, email, password_digest, active, role, remember_digest, phone, name_photo, created_at, updated_at, profile_users_id) VALUES (4000, 'TESTE_LINCOLN', 'LINCOLN_TESTE@GMAIL.COM', '$2a$12$p4eY.qhFmLrLpOqwi7tRQOAX9bCVWSxfoKWkZE6OXPeksD6cH9M0m', 'true', 'admin', null, '85985763075', null, '0001-01-01 00:00:00', '0001-01-01 00:00:00', 1)
+Então deletar cliente usuario_intranet
+    [Documentation]    Deleta dados
+    Conectar ao Banco de Dados
+    ${result}        Execute SQL String     DELETE FROM public.intranet_users WHERE id=4000
+    Disconnect From Database
