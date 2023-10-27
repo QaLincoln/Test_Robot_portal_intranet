@@ -1,13 +1,17 @@
 *** Settings ***
 Resource        ../Configuracao/location.robot
+Resource        ../Configuracao/banco.robot
 Library         SeleniumLibrary
 Library         DatabaseLibrary
 Library         String
 Library         Collections
+Library         OperatingSystem
+Library         Dialogs
+Library         Process
+#Library         RPA.Excel
+#Library    RPA.Desktop.Windows
+#Library    RPA.Excel.Files
 
-#Force Tags      todos_cadastro_Clientes
-
-#Library         OperatingSystem
 
 *** Variables ***
 ${CAMPO_ID}             //input[contains(@class,'form-control input input')]
@@ -19,16 +23,27 @@ ${CAMPO_DATA_F}         (//input[contains(@class,'reg')])[2]
 ${APLICAR_FILTRO}       (//button[contains(@type,'button')])[3]
 ${LIMPAR_FILTRO}        //button[contains(@id,'limpar-filtros')]
 #${FECHAR_JANELA}        taskkill /F /IM chrome.exe
+${DOWNLOAD_PATH}         C:/Users/quems/Downloads/      # Substitua pelo caminho onde deseja salvar o arquivo
+${ARQUIVO_PATH}          C:/Users/quems/Downloads/clients.xlsx
+${NAME_FILE}             clients.xlsx    # Substitua pelo nome do arquivo esperado
 
 *** Keywords ***
 
+Executar comando antes do teste
+    Então deletar partner_clients
+    Então deletar cliente
+
+Executar comando depois do teste
+    Então deletar partner_clients
+    Então deletar cliente
 
 #Caso de teste 1
 E deve consegui filtrar por id
     Sleep    5
-    Input Text                      locator=${CAMPO_ID}   text=300
+    Wait Until Element Is Visible   locator=//span[contains(.,'TesteLincoln')]
+    Input Text                      locator=${CAMPO_ID}   text=50000
     Click Element                   locator=${APLICAR_FILTRO}
-    Wait Until Page Contains        text=3000
+    Wait Until Page Contains        text=50000
     Click Element                   locator=${LIMPAR_FILTRO}
     Wait Until Element Is Visible   locator=//span[contains(.,'TesteLincoln')]
     Sleep    2
@@ -93,11 +108,15 @@ E deve consegui filtrar por datas
     Wait Until Element Is Visible       locator=//span[contains(.,'TesteLincoln')]
     Sleep    2
 
-
-
-
-
-
+#Caso de teste 7
+Então deve consegui exporta arquivo   #Diretorio windons
+    Sleep    2
+    Click Element           locator=//button[@class='btn btn-secondary'][contains(.,'Exportar para Excel')]
+    Sleep    2
+    File Should Exist           ${ARQUIVO_PATH}
+    ${status1}    Run Process    python    excel.py
+    ${status2}    Should Exist                ${ARQUIVO_PATH}
+    Log     O arquivo clients.xlsx existe na pasta
 
 
 

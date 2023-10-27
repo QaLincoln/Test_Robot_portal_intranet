@@ -19,13 +19,13 @@ Conectar ao Banco de Dados
 Quando inserir Dados no Banco
     [Documentation]    Insere dados na tabela de exemplo.
     Conectar ao Banco de Dados
-    ${result}    Execute SQL String    INSERT INTO public.clients (id, cpf_cnpj, social_reason, fantasy, contact_name, email, active, phone_number, address_id, group_id, establishment_id, created_at, updated_at, status_caf, status_accreditation_id) VALUES(3000,032607033821,'TesteLincoln','teste', 'teste','teste@gmail.com', true,85985763075, 1, 1, 1, '2023-09-24', '2023-09-24' , 'APPROVED', 3)
+    ${result}    Execute SQL String    INSERT INTO public.clients (id, cpf_cnpj, social_reason, fantasy, contact_name, email, active, phone_number, address_id, group_id, establishment_id, created_at, updated_at, status_caf, status_accreditation_id) VALUES(50000,032607033821,'TesteLincoln','teste', 'teste','teste@gmail.com', true,85985763075, 1, 1, 1, '2023-09-24', '2023-09-24' , 'APPROVED', 3)
 #     Should Be Equal As Integers    ${result}    1
 
 Então deletar cliente
     [Documentation]    Deleta dados
     Conectar ao Banco de Dados
-    ${result}        Execute SQL String     DELETE FROM public.clients WHERE id=3000
+    ${result}        Execute SQL String     DELETE FROM public.clients WHERE id=50000
 #    Run Keyword And Ignore Error
 #    Run Keyword If  "${result}" == "FAIL"  Log  A exclusão falhou, mas continuando o teste
 #        ...  ELSE  Log  A exclusão foi bem-sucedida
@@ -42,10 +42,10 @@ Comparar Dados do Banco com totalizadores: Aceitos, Pendentes, Não_validados e 
      Log    Total number of records:${Pendentes}
 
      ${Não_validados}     Query               SELECT COUNT(*) FROM clients WHERE status_accreditation_id = 1
-          Log    Total number of records:${Não_validados}
+     Log    Total number of records:${Não_validados}
 
     ${Declinados}         Query               SELECT COUNT(*) FROM clients WHERE status_accreditation_id = 4
-     Log    Total number of records:${Declinados}
+    Log    Total number of records:${Declinados}
 
 #Converter abaixo tupla da lista
      ${valor1} =    Get From List          ${aceitos}          0        # Extrai a tupla da lista
@@ -63,7 +63,7 @@ Comparar Dados do Banco com totalizadores: Aceitos, Pendentes, Não_validados e 
      ${valor4} =    Get From List          ${Declinados}         0        # Extrai a tupla da lista
      ${numero4} =    Convert To Integer    ${valor4[0]}    # Extrai o valor da tupla e converte para inteiro
      Log    Número como inteiro:${numero4}
-     Disconnect From Database
+
 #Comparar valores do banco com a tela cadastro
     ${dynamic_number1} =    Get Text    (//h2[contains(@class,'fw-bold text-center text-black')])[1]    # Localiza o número dinâmico na página
     ${expected_number1} =    Set Variable    ${numero1}   # Número de referência a ser comparado
@@ -96,3 +96,24 @@ Então deletar cliente usuario_intranet
     Conectar ao Banco de Dados
     ${result}        Execute SQL String     DELETE FROM public.intranet_users WHERE id=4000
     Disconnect From Database
+############################################################################################################
+Quando inserir partner_clients
+    [Documentation]    Insere dados na tabela de exemplo.
+    Conectar ao Banco de Dados
+    ${result}    Execute SQL String    INSERT INTO public.partner_clients(id, partner_id, client_email, client_id, created_at, updated_at, active) VALUES (40000, 1, 'teste_partner@gmail.com', '50000', '0001-01-01 00:00:00', '0001-01-01 00:00:00', 'true');
+Então deletar partner_clients
+    [Documentation]    Deleta dados
+    Conectar ao Banco de Dados
+    ${result}        Execute SQL String     DELETE FROM public.partner_clients WHERE id=50000
+    Disconnect From Database
+############################################################################################################
+Quando inserir users_intranet
+    [Documentation]    Insere dados na tabela de exemplo.
+    Conectar ao Banco de Dados
+    ${result}    Execute SQL String     INSERT INTO public.intranet_users (id, name, email, phone, password_digest, active, role, created_at, updated_at, profile_users_id )VALUES (60000, 'LINK_TEST', 'LINK_TEST@GMAIL.COM', '85985763075', '$2a$12$IQjDl278SCiLUfHL1eRz7ucZWxvHUnoboUzYH0OgO02U9qmnqPnKK', 'TRUE', 'ADMIN', '2023-10-23 16:31:00.22457', '2023-10-23 16:31:00.22457', '3');
+Então deletar users_intranet
+    [Documentation]    Deleta dados
+    Conectar ao Banco de Dados
+    ${result}        Execute SQL String     DELETE FROM public.intranet_users WHERE id=60000
+    Disconnect From Database
+############################################################################################################
