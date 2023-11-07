@@ -16,7 +16,7 @@ ${LIMPAR_FILTRO}        //button[contains(.,'Limpar filtros')]
 *** Keywords ***
 Executar comando antes do teste
     Então deletar users_intranet
-    Quando inserir users_intranet
+    Quando inserir dados na tabela usuario_intranet
 
 Executar comando depois do teste
     Então deletar users_intranet

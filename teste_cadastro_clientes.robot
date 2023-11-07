@@ -14,8 +14,8 @@ Caso de Teste 1: Testando todos os filtros: Filtro por ID
     [Tags]    id
     Executar comando antes do teste
     Dado fazendo login      #puxa do arquivo../location.robo
-    Quando inserir Dados no Banco      #Cria um cliente no banco
-    Quando inserir partner_clients
+    Quando inserir Dados na tabela clientes      #Cria um cliente no banco
+    Quando inserir tabela partner_clients
     E entrar na tela cadastro_clientes     #puxa do arquivo../location.robot
     E deve consegui filtrar por id
     Executar comando depois do teste
@@ -24,8 +24,8 @@ Caso de Teste 2: Testando todos os filtros: Filtro por Clientes
     [Tags]    clientes
     Executar comando antes do teste
     Dado fazendo login      #puxa do arquivo../location.robot
-    Quando inserir Dados no Banco      #Cria um cliente no banco
-    Quando inserir partner_clients
+    Quando inserir Dados na tabela clientes      #Cria um cliente no banco
+    Quando inserir tabela partner_clients
     E entrar na tela cadastro_clientes     #puxa do arquivo../location.robot
     E deve consegui filtrar por cliente
     Executar comando depois do teste
@@ -34,8 +34,8 @@ Caso de Teste 3: Testando todos os filtros: Aba Aceitos - Filtro por CPF
     [Tags]    cpf
     Executar comando antes do teste
     Dado fazendo login          #puxa do arquivo../location.robot
-    Quando inserir Dados no Banco      #Cria um cliente no banco
-    Quando inserir partner_clients
+    Quando inserir Dados na tabela clientes      #Cria um cliente no banco
+    Quando inserir tabela partner_clients
     E entrar na tela cadastro_clientes     #puxa do arquivo../location.robot
     E deve consegui filtrar por cpf
     Executar comando depois do teste
@@ -44,8 +44,8 @@ Caso de Teste 4: Testando todos os filtros: Aba Aceitos - Filtro por Status
     [Tags]    status
     Executar comando antes do teste
     Dado fazendo login          #puxa do arquivo../location.robot
-    Quando inserir Dados no Banco      #Cria um cliente no banco
-    Quando inserir partner_clients
+    Quando inserir Dados na tabela clientes      #Cria um cliente no banco
+    Quando inserir tabela partner_clients
     E entrar na tela cadastro_clientes     #puxa do arquivo../location.robot
     E deve consegui filtrar por status
     Executar comando depois do teste
@@ -54,8 +54,8 @@ Caso de Teste 5: Testando todos os filtros: Aba Aceitos - Filtro por Datas
     [Tags]    datas
     Executar comando antes do teste
     Dado fazendo login          #puxa do arquivo../location.robot
-    Quando inserir Dados no Banco      #Cria um cliente no banco
-    Quando inserir partner_clients
+    Quando inserir Dados na tabela clientes      #Cria um cliente no banco
+    Quando inserir tabela partner_clients
     E entrar na tela cadastro_clientes     #puxa do arquivo../location.robot
     E deve consegui filtrar por datas
     Executar comando depois do teste
