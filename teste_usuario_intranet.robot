@@ -15,5 +15,34 @@ Caso de Teste 1: Testando todos os filtros: Filtro por ID
     Executar comando antes do teste
     Dado fazendo login                         #puxa do arquivo../location.robot
     E entrar na tela usuario_intranet
-    E deve consegui filtrar por id
+    E deve conseguir filtrar por id
     Executar comando depois do teste
+
+Caso de Teste 2: Testando todos os filtros: Filtro por nome
+    [Tags]    nome
+    Executar comando antes do teste
+    Dado fazendo login                         #puxa do arquivo../location.robot
+    E entrar na tela usuario_intranet
+    E deve conseguir filtrar por nome
+    Executar comando depois do teste
+
+Caso de Teste 3: Testando todos os filtros: Filtro por permissão
+    [Tags]    permissão
+    Executar comando antes do teste
+    Dado fazendo login                         #puxa do arquivo../location.robot
+    E entrar na tela usuario_intranet
+    E deve conseguir filtrar por permissão
+    Executar comando depois do teste
+
+Caso de Teste 4: Testando editar e excluir
+    [Tags]    editar/excluir
+    Executar comando antes do teste
+    Dado fazendo login                         #puxa do arquivo../location.robot
+    E entrar na tela usuario_intranet
+    Então deve conseguir editar e excluir
+
+Caso de Teste 5: Cadastrar usuário
+    [Tags]    cadastrar
+    Dado fazendo login                         #puxa do arquivo../location.robot
+    E entrar na tela usuario_intranet
+    E entrar na tela de cadastrar usuário

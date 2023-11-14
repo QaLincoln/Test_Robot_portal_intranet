@@ -14,7 +14,7 @@ ${SIDEBAR_USUARIO}               (//span[contains(@class,'text-itens-sidebar')])
 
 *** Keywords ***
 Abrir Site intranet
-    Open Browser            browser=chrome    ##Abrir browser no chromer
+    Open Browser            browser=firefox    ##Abrir browser no chromer
     Maximize Browser Window
 
 Fechar o navegador
@@ -31,7 +31,7 @@ Dado fazendo login
     Wait Until Page Contains       text=Bem-vindo ao intranet do Parcelaconta, RAFAEL PINHEIRO!
     Sleep    2
 
-E entrar na tela cadastro_clientes
+Quando entrar na tela cadastro_clientes
     Click Element                      locator=${OPEN/CLOSE}
     Click Element                      locator=${SIDEBAR_CADASTRO}
     Wait Until Element Is Visible      locator=${SIDEBAR_CADASTRO_CLIENTES}

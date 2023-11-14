@@ -29,7 +29,7 @@ Então deletar cliente
 #    Run Keyword And Ignore Error
 #    Run Keyword If  "${result}" == "FAIL"  Log  A exclusão falhou, mas continuando o teste
 #        ...  ELSE  Log  A exclusão foi bem-sucedida
-    Disconnect From Database
+#    Disconnect From Database
 
 #Caso de Teste 6
 Comparar Dados do Banco com totalizadores: Aceitos, Pendentes, Não_validados e Declinados
@@ -100,20 +100,28 @@ Comparar Dados do Banco com totalizadores: Aceitos, Pendentes, Não_validados e 
 Quando inserir tabela partner_clients
     [Documentation]    Insere dados na tabela de exemplo.
     Conectar ao Banco de Dados
-    ${result}    Execute SQL String    INSERT INTO public.partner_clients(id, partner_id, client_email, client_id, created_at, updated_at, active) VALUES (40000, 1, 'teste_partner@gmail.com', '50000', '0001-01-01 00:00:00', '0001-01-01 00:00:00', 'true');
+    ${result}    Execute SQL String    INSERT INTO public.partner_clients(id, partner_id, client_email, client_id, created_at, updated_at, active) VALUES (100000, 70000, 'teste_partner@gmail.com', '50000', '0001-01-01 00:00:00', '0001-01-01 00:00:00', 'true');
 Então deletar partner_clients
     [Documentation]    Deleta dados
     Conectar ao Banco de Dados
-    ${result}        Execute SQL String     DELETE FROM public.partner_clients WHERE id=40000
-    Disconnect From Database
+    ${result}        Execute SQL String     DELETE FROM public.partner_clients WHERE id=100000
+#    Disconnect From Database
 ############################################################################################################
 Quando inserir dados na tabela usuario_intranet
     [Documentation]    Insere dados na tabela de exemplo.
     Conectar ao Banco de Dados
-    ${result}    Execute SQL String     INSERT INTO public.intranet_users (id, name, email, phone, password_digest, active, role, created_at, updated_at, profile_users_id )VALUES (60000, 'LINK_TEST', 'LINK_TEST@GMAIL.COM', '85985763075', '$2a$12$IQjDl278SCiLUfHL1eRz7ucZWxvHUnoboUzYH0OgO02U9qmnqPnKK', 'TRUE', 'ADMIN', '2023-10-23 16:31:00.22457', '2023-10-23 16:31:00.22457', '3');
+    ${result}    Execute SQL String     INSERT INTO public.intranet_users (id, name, email, phone, password_digest, active, role, created_at, updated_at, profile_users_id )VALUES (60000, 'LINK_TEST', 'LINK_TEST@GMAIL.COM', '85985763075', '$2a$12$IQjDl278SCiLUfHL1eRz7ucZWxvHUnoboUzYH0OgO02U9qmnqPnKK', 'TRUE', 'ADMIN', '2023-10-23 16:31:00.22457', '2023-10-23 16:31:00.22457', '5');
 Então deletar users_intranet
     [Documentation]    Deleta dados
     Conectar ao Banco de Dados
     ${result}        Execute SQL String     DELETE FROM public.intranet_users WHERE id=60000
-    Disconnect From Database
+#    Disconnect From Database
 #############################################################################################################
+Quando inserir dados na tabela partners
+    [Documentation]    Insere dados na tabela de exemplo.
+    Conectar ao Banco de Dados
+    ${result}    Execute SQL String         INSERT INTO public.partners(id, social_reason, fantasy, cpf_cnpj, email, phone_number, active, created_at, updated_at) VALUES (70000, 'EMPRESA_TESTE', 'LOJA_TESTE', '03260703388', 'LOJA_TESTE1@GMAIL.COM', '985763057', TRUE, '2023-09-01 09:37:29.933072', '2023-09-01 09:37:29.933072');
+Então deletar partners
+    [Documentation]    Deleta dados
+    Conectar ao Banco de Dados
+    ${result}        Execute SQL String     DELETE FROM public.partners WHERE id=70000

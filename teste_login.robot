@@ -1,6 +1,7 @@
 *** Settings ***
 Resource    Resourcer/resourcer_login.robot
 Test Setup    Abrir Site
+Test Teardown   Fechar o navegador
 Test Tags       todos_login
 
 *** Test Cases ***

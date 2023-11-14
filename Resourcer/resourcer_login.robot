@@ -9,7 +9,7 @@ ${URL}  http://localhost:8080/auth/login
 
 *** Keywords ***
 Abrir Site
-    Open Browser    browser=chrome    ##Abrir browser no chromer
+    Open Browser                 browser=firefox    ##Abrir browser no chromer
     Maximize Browser Window
 
 Fechar o navegador

@@ -31,10 +31,17 @@ ${NAME_FILE}             clients.xlsx    # Substitua pelo nome do arquivo espera
 
 Executar comando antes do teste
     Então deletar partner_clients
+    Então deletar partners
     Então deletar cliente
+#    Então deletar partners
+    Quando inserir Dados na tabela clientes      #Cria um cliente no banco
+    Quando inserir dados na tabela partners
+    Quando inserir tabela partner_clients
+
 
 Executar comando depois do teste
     Então deletar partner_clients
+    Então deletar partners
     Então deletar cliente
 
 #Caso de teste 1
@@ -47,6 +54,7 @@ E deve consegui filtrar por id
     Click Element                   locator=${LIMPAR_FILTRO}
     Wait Until Element Is Visible   locator=//span[contains(.,'TesteLincoln')]
     Sleep    2
+#    Close Browser
 
 #    Run                             ${FECHAR_JANELA}          #Fechar janela do browser quando terminar
 #Caso de Teste 2
@@ -93,11 +101,11 @@ E deve consegui filtrar por status
 E deve consegui filtrar por datas
     Sleep    5
     Click Element                       locator=${CAMPO_DATA_I}
-    Click Element                       locator=//div[@class='dp__month_year_select'][contains(.,'out.')]                         #Calendario mês
-    Click Element                       locator=//div[@class='dp__overlay_cell dp__overlay_cell_pad'][contains(.,'set.')]         #Escolher mês
-    Click Element                       locator=//div[@class='dp__cell_inner dp__pointer dp__date_hover'][contains(.,'24')]       #Escolher dia
+    Click Element                       locator=(//div[contains(@class,'dp__month_year_select')])[1]        #Calendario mês
+    Click Element                       locator=//div[@class='dp__overlay_cell dp__overlay_cell_pad'][contains(.,'set.')]      #Escolher mês
+    Click Element                       locator=//div[@class='dp__cell_inner dp__pointer dp__date_hover'][contains(.,'24')]     #Escolher dia
     Click Element                       locator=${CAMPO_DATA_F}
-    Click Element                       locator=//div[@class='dp__month_year_select'][contains(.,'out.')]
+    Click Element                       locator=//div[@class='dp__month_year_select'][contains(.,'nov.')]
     Click Element                       locator=//div[@class='dp__overlay_cell dp__overlay_cell_pad'][contains(.,'set.')]
     Click Element                       locator=//div[@class='dp__cell_inner dp__pointer dp__date_hover'][contains(.,'24')]
     Click Element                       locator=${APLICAR_FILTRO}
@@ -117,6 +125,17 @@ Então deve consegui exporta arquivo   #Diretorio windons
     ${status1}    Run Process    python    excel.py
     ${status2}    Should Exist                ${ARQUIVO_PATH}
     Log     O arquivo clients.xlsx existe na pasta
+
+#Caso de teste 8
+E deve consegui filtrar por parceiro
+    Click Element           locator=//input[contains(@aria-controls,'search-partner-multiselect-options')]
+    Click Element           locator=//span[contains(.,'LOJA_TESTE')]
+    Click Element           locator=//button[@type='button'][contains(.,'Aplicar filtros')]
+    Wait Until Element Is Visible       locator=//td[contains(.,'LOJA_TESTE')]
+    Element Text Should Be              //td[contains(.,'LOJA_TESTE')]      LOJA_TESTE
+
+    Sleep    2
+
 
 
 
