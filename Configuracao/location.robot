@@ -4,11 +4,13 @@ Library    SeleniumLibrary
 
 *** Variables ***
 ${URL}                           http://localhost:8080/auth/login
+${URL_PARCEIROS}                 http://localhost:8080/partners
 ${URL_CADASTRO}                  http://localhost:8080/clients
 ${URL_USUARIO}                   http://localhost:8080/intranet-users
 ${OPEN/CLOSE}                    //img[contains(@alt,'Open/Close')]
 ${SIDEBAR_CADASTRO}              //span[contains(.,'Cadastros')]
 ${SIDEBAR_CADASTRO_CLIENTES}     class=text-itens-sidebar
+${SIDEBAR_PARCEIROS}             //span[@class='text-itens-sidebar'][contains(.,'Parceiros')]
 ${SIDEBAR_USUARIO}               (//span[contains(@class,'text-itens-sidebar')])[3]
 
 
@@ -39,7 +41,16 @@ Quando entrar na tela cadastro_clientes
     Wait Until Page Contains           text=Bem-vindo ao intranet do Parcelaconta, RAFAEL PINHEIRO!
     Wait Until Location Is             expected=${URL_CADASTRO}
     Sleep    2
-E entrar na tela usuario_intranet
+
+Quando entrar na tela parceiros
+    Click Element                      locator=${OPEN/CLOSE}
+    Click Element                      locator=${SIDEBAR_CADASTRO}
+    Wait Until Element Is Visible      locator=${SIDEBAR_PARCEIROS}
+    Click Element                      locator=${SIDEBAR_PARCEIROS}
+    Wait Until Page Contains           text=Bem-vindo ao intranet do Parcelaconta, RAFAEL PINHEIRO!
+    Wait Until Location Is             expected=${URL_PARCEIROS}
+
+Quando entrar na tela usuario_intranet
     Click Element                       locator=${OPEN/CLOSE}
     Click Element                       locator=${SIDEBAR_CADASTRO}
     Wait Until Element Is Visible       locator=${SIDEBAR_USUARIO}
