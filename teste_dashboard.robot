@@ -2,6 +2,7 @@
 Resource    Resourcer/resourcer_dashboard.robot
 Resource    Configuracao/location.robot
 Test Setup    Abrir Site intranet
+Test Teardown   Fechar o navegador
 Test Tags       todos_dashboard
 
 *** Test Cases ***

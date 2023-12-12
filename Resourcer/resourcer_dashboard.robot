@@ -1,5 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
+Suite Setup     Set Screenshot Directory  NONE
 #Force Tags      todos_dashboard
 
 

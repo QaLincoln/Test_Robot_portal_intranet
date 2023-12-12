@@ -5,6 +5,7 @@ Library         SeleniumLibrary
 Library         DatabaseLibrary
 Library         String
 Library         Collections
+Suite Setup     Set Screenshot Directory  NONE
 #Force Tags      todos_usuario_intranet
 
 
