@@ -5,14 +5,14 @@ Library         SeleniumLibrary
 Library         DatabaseLibrary
 Library         String
 Library         Collections
-Suite Setup     Set Screenshot Directory  NONE
+#Suite Setup     Set Screenshot Directory  NONE
 #Force Tags      todos_usuario_intranet
 
 
 *** Variables ***
 ${CAMPO_ID}             //input[contains(@placeholder,'Informe o ID')]
 ${APLICAR_FILTRO}       //button[@type='button'][contains(.,'Filtrar')]
-${LIMPAR_FILTRO}        //button[contains(@id,'limpar-filtros')]
+${LIMPAR_FILTRO}        //button[contains(.,'Limpar')]
 ${CAMPO_NOME}           //input[contains(@aria-placeholder,'Informe o Nome')]
 ${URL_CADASTRO}         http://localhost:8080/intranet-users/create
 
@@ -37,13 +37,16 @@ E deve conseguir filtrar por id
 
 #Caso de teste 2
 E deve conseguir filtrar por nome
-    Sleep    5
-    Input Text                      locator=${CAMPO_NOME}   text=LINK_TEST
+    Wait Until Element Is Visible    locator=${CAMPO_NOME}
+    Input Text                      locator=${CAMPO_NOME}    text=LINK_TEST
+    Click Element                   locator=//li[contains(.,'LINK_TEST')]
+    sleep   1
     Click Element                   locator=${APLICAR_FILTRO}
     Wait Until Page Contains        text=LINK_TEST
     Element Text Should Be          (//td[contains(.,'LINK_TEST')])[1]      LINK_TEST
+    Sleep    1
     Click Element                   locator=${LIMPAR_FILTRO}
-    #Wait Until Element Is Visible   locator=//td[contains(.,'60000')]
+    Wait Until Element Is Visible   locator=//td[contains(.,'60000')]
     Sleep    2
 
 #Caso de teste 3
@@ -55,7 +58,7 @@ E deve conseguir filtrar por permissão
     Wait Until Page Contains        text=CS
     Element Text Should Be          //td[contains(.,'CS')]      CS
     Click Element                   locator=${LIMPAR_FILTRO}
-    #Wait Until Element Is Visible   locator=//td[contains(.,'60000')]
+    Wait Until Element Is Visible   locator=//td[contains(.,'60000')]
     Sleep    2
 
 #Caso de teste 4
@@ -84,7 +87,7 @@ Então deve conseguir editar e excluir
     Sleep    2
     Input Text                      locator=${CAMPO_ID}   text=60000
     Click Element                   locator=${APLICAR_FILTRO}
-    Wait Until Page Contains        text=Não há informações disponíveis para os filtros selecionados.
+    Wait Until Page Contains        text=Nenhum cliente encontrado.
 
 #Caso de teste 5
 E entrar na tela de cadastrar usuário

@@ -1,6 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
-Suite Setup     Set Screenshot Directory  NONE
+#Suite Setup     Set Screenshot Directory  NONE
 #Force Tags      todos_login
 
 

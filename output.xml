@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.3 on win32)" generated="20231204 17:09:14.977" rpa="false" schemaversion="4">
-<suite id="s1" name="Teste Cadastro Clientes" source="C:\Users\quems\Desktop\Fixpay_projetos_atualizados\portal-intranet\test_robot_framework\teste_cadastro_clientes.robot">
-<test id="s1-t1" name="Caso de Teste 1: Testando todos os filtros: Filtro por ID" line="11">
+<robot generator="Robot 6.1.1 (Python 3.11.3 on win32)" generated="20231212 14:56:03.907" rpa="false" schemaversion="4">
+<suite id="s1" name="Teste Usuario Intranet" source="C:\Users\quems\Desktop\Fixpay_projetos_atualizados\portal-intranet\test_robot_framework\teste_usuario_intranet.robot">
+<test id="s1-t1" name="Caso de Teste 1: Testando todos os filtros: Filtro por ID" line="13">
 <kw name="Abrir Site intranet" library="location" type="SETUP">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>browser=firefox</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20231204 17:09:15.203" level="INFO">Opening browser 'firefox' to base url 'None'.</msg>
-<status status="PASS" starttime="20231204 17:09:15.203" endtime="20231204 17:09:23.610"/>
+<msg timestamp="20231212 14:56:04.326" level="INFO">Opening browser 'firefox' to base url 'None'.</msg>
+<status status="PASS" starttime="20231212 14:56:04.326" endtime="20231212 14:56:12.546"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20231204 17:09:23.610" endtime="20231204 17:09:23.619"/>
+<status status="PASS" starttime="20231212 14:56:12.546" endtime="20231212 14:56:12.551"/>
 </kw>
-<status status="PASS" starttime="20231204 17:09:15.203" endtime="20231204 17:09:23.619"/>
+<status status="PASS" starttime="20231212 14:56:04.326" endtime="20231212 14:56:12.551"/>
 </kw>
-<kw name="Executar comando antes do teste" library="resourcer_cadastro_clientes">
-<kw name="Então deletar partner_clients" library="banco">
+<kw name="Executar comando antes do teste" library="resourcer_usuario_intranet">
+<kw name="Então deletar users_intranet" library="banco">
 <doc>Deleta dados</doc>
 <kw name="Conectar ao Banco de Dados" library="banco">
 <kw name="Connect To Database" library="DatabaseLibrary">
@@ -28,107 +28,23 @@
 <arg>${DB_PORT}</arg>
 <doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
 connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
-<msg timestamp="20231204 17:09:23.648" level="INFO">Connecting using : psycopg2.connect(database=parcelaconta_development, user=postgres, password=***, host=localhost, port=5432) </msg>
-<status status="PASS" starttime="20231204 17:09:23.624" endtime="20231204 17:09:23.769"/>
+<msg timestamp="20231212 14:56:12.596" level="INFO">Connecting using : psycopg2.connect(database=parcelaconta_development, user=postgres, password=***, host=localhost, port=5432) </msg>
+<status status="PASS" starttime="20231212 14:56:12.551" endtime="20231212 14:56:12.733"/>
 </kw>
-<status status="PASS" starttime="20231204 17:09:23.624" endtime="20231204 17:09:23.769"/>
-</kw>
-<kw name="Execute Sql String" library="DatabaseLibrary">
-<var>${result}</var>
-<arg>DELETE FROM public.partner_clients WHERE id=100000</arg>
-<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
-True to run command without an explicit transaction commit or rollback.</doc>
-<msg timestamp="20231204 17:09:23.769" level="INFO">Executing : Execute SQL String  |  DELETE FROM public.partner_clients WHERE id=100000 </msg>
-<msg timestamp="20231204 17:09:23.782" level="INFO">${result} = None</msg>
-<status status="PASS" starttime="20231204 17:09:23.769" endtime="20231204 17:09:23.782"/>
-</kw>
-<status status="PASS" starttime="20231204 17:09:23.624" endtime="20231204 17:09:23.782"/>
-</kw>
-<kw name="Então deletar partners" library="banco">
-<doc>Deleta dados</doc>
-<kw name="Conectar ao Banco de Dados" library="banco">
-<kw name="Connect To Database" library="DatabaseLibrary">
-<arg>${DB_DRIVER}</arg>
-<arg>${DB_NAME}</arg>
-<arg>${DB_USER}</arg>
-<arg>${DB_PASSWORD}</arg>
-<arg>${DB_HOST}</arg>
-<arg>${DB_PORT}</arg>
-<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
-connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
-<msg timestamp="20231204 17:09:23.782" level="INFO">Connecting using : psycopg2.connect(database=parcelaconta_development, user=postgres, password=***, host=localhost, port=5432) </msg>
-<status status="PASS" starttime="20231204 17:09:23.782" endtime="20231204 17:09:23.860"/>
-</kw>
-<status status="PASS" starttime="20231204 17:09:23.782" endtime="20231204 17:09:23.860"/>
+<status status="PASS" starttime="20231212 14:56:12.551" endtime="20231212 14:56:12.733"/>
 </kw>
 <kw name="Execute Sql String" library="DatabaseLibrary">
 <var>${result}</var>
-<arg>DELETE FROM public.partners WHERE id=70000</arg>
+<arg>DELETE FROM public.intranet_users WHERE id=60000</arg>
 <doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
 True to run command without an explicit transaction commit or rollback.</doc>
-<msg timestamp="20231204 17:09:23.860" level="INFO">Executing : Execute SQL String  |  DELETE FROM public.partners WHERE id=70000 </msg>
-<msg timestamp="20231204 17:09:23.860" level="INFO">${result} = None</msg>
-<status status="PASS" starttime="20231204 17:09:23.860" endtime="20231204 17:09:23.860"/>
+<msg timestamp="20231212 14:56:12.736" level="INFO">Executing : Execute SQL String  |  DELETE FROM public.intranet_users WHERE id=60000 </msg>
+<msg timestamp="20231212 14:56:12.739" level="INFO">${result} = None</msg>
+<status status="PASS" starttime="20231212 14:56:12.736" endtime="20231212 14:56:12.739"/>
 </kw>
-<status status="PASS" starttime="20231204 17:09:23.782" endtime="20231204 17:09:23.860"/>
+<status status="PASS" starttime="20231212 14:56:12.551" endtime="20231212 14:56:12.739"/>
 </kw>
-<kw name="Então deletar cliente" library="banco">
-<doc>Deleta dados</doc>
-<kw name="Conectar ao Banco de Dados" library="banco">
-<kw name="Connect To Database" library="DatabaseLibrary">
-<arg>${DB_DRIVER}</arg>
-<arg>${DB_NAME}</arg>
-<arg>${DB_USER}</arg>
-<arg>${DB_PASSWORD}</arg>
-<arg>${DB_HOST}</arg>
-<arg>${DB_PORT}</arg>
-<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
-connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
-<msg timestamp="20231204 17:09:23.860" level="INFO">Connecting using : psycopg2.connect(database=parcelaconta_development, user=postgres, password=***, host=localhost, port=5432) </msg>
-<status status="PASS" starttime="20231204 17:09:23.860" endtime="20231204 17:09:23.948"/>
-</kw>
-<status status="PASS" starttime="20231204 17:09:23.860" endtime="20231204 17:09:23.948"/>
-</kw>
-<kw name="Execute Sql String" library="DatabaseLibrary">
-<var>${result}</var>
-<arg>DELETE FROM public.clients WHERE id=50000</arg>
-<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
-True to run command without an explicit transaction commit or rollback.</doc>
-<msg timestamp="20231204 17:09:23.948" level="INFO">Executing : Execute SQL String  |  DELETE FROM public.clients WHERE id=50000 </msg>
-<msg timestamp="20231204 17:09:23.948" level="INFO">${result} = None</msg>
-<status status="PASS" starttime="20231204 17:09:23.948" endtime="20231204 17:09:23.948"/>
-</kw>
-<status status="PASS" starttime="20231204 17:09:23.860" endtime="20231204 17:09:23.948"/>
-</kw>
-<kw name="Então deletar partners" library="banco">
-<doc>Deleta dados</doc>
-<kw name="Conectar ao Banco de Dados" library="banco">
-<kw name="Connect To Database" library="DatabaseLibrary">
-<arg>${DB_DRIVER}</arg>
-<arg>${DB_NAME}</arg>
-<arg>${DB_USER}</arg>
-<arg>${DB_PASSWORD}</arg>
-<arg>${DB_HOST}</arg>
-<arg>${DB_PORT}</arg>
-<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
-connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
-<msg timestamp="20231204 17:09:23.948" level="INFO">Connecting using : psycopg2.connect(database=parcelaconta_development, user=postgres, password=***, host=localhost, port=5432) </msg>
-<status status="PASS" starttime="20231204 17:09:23.948" endtime="20231204 17:09:24.067"/>
-</kw>
-<status status="PASS" starttime="20231204 17:09:23.948" endtime="20231204 17:09:24.067"/>
-</kw>
-<kw name="Execute Sql String" library="DatabaseLibrary">
-<var>${result}</var>
-<arg>DELETE FROM public.partners WHERE id=70000</arg>
-<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
-True to run command without an explicit transaction commit or rollback.</doc>
-<msg timestamp="20231204 17:09:24.067" level="INFO">Executing : Execute SQL String  |  DELETE FROM public.partners WHERE id=70000 </msg>
-<msg timestamp="20231204 17:09:24.074" level="INFO">${result} = None</msg>
-<status status="PASS" starttime="20231204 17:09:24.067" endtime="20231204 17:09:24.074"/>
-</kw>
-<status status="PASS" starttime="20231204 17:09:23.948" endtime="20231204 17:09:24.074"/>
-</kw>
-<kw name="Quando inserir Dados na tabela clientes" library="banco">
+<kw name="Quando inserir dados na tabela usuario_intranet" library="banco">
 <doc>Insere dados na tabela de exemplo.</doc>
 <kw name="Conectar ao Banco de Dados" library="banco">
 <kw name="Connect To Database" library="DatabaseLibrary">
@@ -140,324 +56,1086 @@ True to run command without an explicit transaction commit or rollback.</doc>
 <arg>${DB_PORT}</arg>
 <doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
 connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
-<msg timestamp="20231204 17:09:24.074" level="INFO">Connecting using : psycopg2.connect(database=parcelaconta_development, user=postgres, password=***, host=localhost, port=5432) </msg>
-<status status="PASS" starttime="20231204 17:09:24.074" endtime="20231204 17:09:24.179"/>
+<msg timestamp="20231212 14:56:12.741" level="INFO">Connecting using : psycopg2.connect(database=parcelaconta_development, user=postgres, password=***, host=localhost, port=5432) </msg>
+<status status="PASS" starttime="20231212 14:56:12.741" endtime="20231212 14:56:12.815"/>
 </kw>
-<status status="PASS" starttime="20231204 17:09:24.074" endtime="20231204 17:09:24.179"/>
-</kw>
-<kw name="Execute Sql String" library="DatabaseLibrary">
-<var>${result}</var>
-<arg>INSERT INTO public.clients (id, cpf_cnpj, social_reason, fantasy, contact_name, email, active, phone_number, address_id, group_id, establishment_id, created_at, updated_at, status_caf, status_accreditation_id) VALUES(50000,032607033821,'TesteLincoln','teste', 'teste','teste@gmail.com', true,85985763075, 1, 1, 1, '2023-09-24', '2023-09-24' , 'APPROVED', 3)</arg>
-<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
-True to run command without an explicit transaction commit or rollback.</doc>
-<msg timestamp="20231204 17:09:24.179" level="INFO">Executing : Execute SQL String  |  INSERT INTO public.clients (id, cpf_cnpj, social_reason, fantasy, contact_name, email, active, phone_number, address_id, group_id, establishment_id, created_at, updated_at, status_caf, status_accreditation_id) VALUES(50000,032607033821,'TesteLincoln','teste', 'teste','teste@gmail.com', true,85985763075, 1, 1, 1, '2023-09-24', '2023-09-24' , 'APPROVED', 3) </msg>
-<msg timestamp="20231204 17:09:24.188" level="INFO">${result} = None</msg>
-<status status="PASS" starttime="20231204 17:09:24.179" endtime="20231204 17:09:24.188"/>
-</kw>
-<status status="PASS" starttime="20231204 17:09:24.074" endtime="20231204 17:09:24.188"/>
-</kw>
-<kw name="Quando inserir dados na tabela partners" library="banco">
-<doc>Insere dados na tabela de exemplo.</doc>
-<kw name="Conectar ao Banco de Dados" library="banco">
-<kw name="Connect To Database" library="DatabaseLibrary">
-<arg>${DB_DRIVER}</arg>
-<arg>${DB_NAME}</arg>
-<arg>${DB_USER}</arg>
-<arg>${DB_PASSWORD}</arg>
-<arg>${DB_HOST}</arg>
-<arg>${DB_PORT}</arg>
-<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
-connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
-<msg timestamp="20231204 17:09:24.190" level="INFO">Connecting using : psycopg2.connect(database=parcelaconta_development, user=postgres, password=***, host=localhost, port=5432) </msg>
-<status status="PASS" starttime="20231204 17:09:24.188" endtime="20231204 17:09:24.271"/>
-</kw>
-<status status="PASS" starttime="20231204 17:09:24.188" endtime="20231204 17:09:24.271"/>
+<status status="PASS" starttime="20231212 14:56:12.740" endtime="20231212 14:56:12.815"/>
 </kw>
 <kw name="Execute Sql String" library="DatabaseLibrary">
 <var>${result}</var>
-<arg>INSERT INTO public.partners(id, social_reason, fantasy, cpf_cnpj, email, phone_number, active, created_at, updated_at) VALUES (70000, 'EMPRESA_TESTE', 'LOJA_TESTE', '03260703388', 'LOJA_TESTE1@GMAIL.COM', '985763057', TRUE, '2023-09-01 09:37:29.933072', '2023-09-01 09:37:29.933072');</arg>
+<arg>INSERT INTO public.intranet_users (id, name, email, phone, password_digest, active, role, created_at, updated_at, profile_users_id )VALUES (60000, 'LINK_TEST', 'LINK_TEST@GMAIL.COM', '85985763075', '$2a$12$IQjDl278SCiLUfHL1eRz7ucZWxvHUnoboUzYH0OgO02U9qmnqPnKK', 'TRUE', 'ADMIN', '2023-10-23 16:31:00.22457', '2023-10-23 16:31:00.22457', '5');</arg>
 <doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
 True to run command without an explicit transaction commit or rollback.</doc>
-<msg timestamp="20231204 17:09:24.271" level="INFO">Executing : Execute SQL String  |  INSERT INTO public.partners(id, social_reason, fantasy, cpf_cnpj, email, phone_number, active, created_at, updated_at) VALUES (70000, 'EMPRESA_TESTE', 'LOJA_TESTE', '03260703388', 'LOJA_TESTE1@GMAIL.COM', '985763057', TRUE, '2023-09-01 09:37:29.933072', '2023-09-01 09:37:29.933072'); </msg>
-<msg timestamp="20231204 17:09:24.274" level="INFO">${result} = None</msg>
-<status status="PASS" starttime="20231204 17:09:24.271" endtime="20231204 17:09:24.274"/>
+<msg timestamp="20231212 14:56:12.815" level="INFO">Executing : Execute SQL String  |  INSERT INTO public.intranet_users (id, name, email, phone, password_digest, active, role, created_at, updated_at, profile_users_id )VALUES (60000, 'LINK_TEST', 'LINK_TEST@GMAIL.COM', '85985763075', '$2a$12$IQjDl278SCiLUfHL1eRz7ucZWxvHUnoboUzYH0OgO02U9qmnqPnKK', 'TRUE', 'ADMIN', '2023-10-23 16:31:00.22457', '2023-10-23 16:31:00.22457', '5'); </msg>
+<msg timestamp="20231212 14:56:12.824" level="INFO">${result} = None</msg>
+<status status="PASS" starttime="20231212 14:56:12.815" endtime="20231212 14:56:12.824"/>
 </kw>
-<status status="PASS" starttime="20231204 17:09:24.188" endtime="20231204 17:09:24.274"/>
+<status status="PASS" starttime="20231212 14:56:12.740" endtime="20231212 14:56:12.824"/>
 </kw>
-<kw name="Quando inserir tabela partner_clients" library="banco">
-<doc>Insere dados na tabela de exemplo.</doc>
-<kw name="Conectar ao Banco de Dados" library="banco">
-<kw name="Connect To Database" library="DatabaseLibrary">
-<arg>${DB_DRIVER}</arg>
-<arg>${DB_NAME}</arg>
-<arg>${DB_USER}</arg>
-<arg>${DB_PASSWORD}</arg>
-<arg>${DB_HOST}</arg>
-<arg>${DB_PORT}</arg>
-<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
-connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
-<msg timestamp="20231204 17:09:24.274" level="INFO">Connecting using : psycopg2.connect(database=parcelaconta_development, user=postgres, password=***, host=localhost, port=5432) </msg>
-<status status="PASS" starttime="20231204 17:09:24.274" endtime="20231204 17:09:24.359"/>
-</kw>
-<status status="PASS" starttime="20231204 17:09:24.274" endtime="20231204 17:09:24.359"/>
-</kw>
-<kw name="Execute Sql String" library="DatabaseLibrary">
-<var>${result}</var>
-<arg>INSERT INTO public.partner_clients(id, partner_id, client_email, client_id, created_at, updated_at, active) VALUES (100000, 70000, 'teste_partner@gmail.com', '50000', '0001-01-01 00:00:00', '0001-01-01 00:00:00', 'true');</arg>
-<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
-True to run command without an explicit transaction commit or rollback.</doc>
-<msg timestamp="20231204 17:09:24.359" level="INFO">Executing : Execute SQL String  |  INSERT INTO public.partner_clients(id, partner_id, client_email, client_id, created_at, updated_at, active) VALUES (100000, 70000, 'teste_partner@gmail.com', '50000', '0001-01-01 00:00:00', '0001-01-01 00:00:00', 'true'); </msg>
-<msg timestamp="20231204 17:09:24.364" level="INFO">${result} = None</msg>
-<status status="PASS" starttime="20231204 17:09:24.359" endtime="20231204 17:09:24.364"/>
-</kw>
-<status status="PASS" starttime="20231204 17:09:24.274" endtime="20231204 17:09:24.364"/>
-</kw>
-<status status="PASS" starttime="20231204 17:09:23.619" endtime="20231204 17:09:24.364"/>
+<status status="PASS" starttime="20231212 14:56:12.551" endtime="20231212 14:56:12.824"/>
 </kw>
 <kw name="Dado fazendo login" library="location">
 <kw name="Go To" library="SeleniumLibrary">
 <arg>url=${URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20231204 17:09:24.365" level="INFO">Opening url 'http://localhost:8080/auth/login'</msg>
-<status status="PASS" starttime="20231204 17:09:24.365" endtime="20231204 17:09:26.796"/>
+<msg timestamp="20231212 14:56:12.824" level="INFO">Opening url 'http://localhost:8080/auth/login'</msg>
+<status status="PASS" starttime="20231212 14:56:12.824" endtime="20231212 14:56:16.507"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>2</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231204 17:09:28.798" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20231204 17:09:26.797" endtime="20231204 17:09:28.798"/>
+<msg timestamp="20231212 14:56:18.507" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231212 14:56:16.507" endtime="20231212 14:56:18.507"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>locator=//input[contains(@type,'text')]</arg>
 <arg>text=RAFAEL.PINHEIRO@FIXPAY.COM.BR</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231204 17:09:28.798" level="INFO">Typing text 'RAFAEL.PINHEIRO@FIXPAY.COM.BR' into text field '//input[contains(@type,'text')]'.</msg>
-<status status="PASS" starttime="20231204 17:09:28.798" endtime="20231204 17:09:28.913"/>
+<msg timestamp="20231212 14:56:18.512" level="INFO">Typing text 'RAFAEL.PINHEIRO@FIXPAY.COM.BR' into text field '//input[contains(@type,'text')]'.</msg>
+<status status="PASS" starttime="20231212 14:56:18.507" endtime="20231212 14:56:18.669"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>locator=//input[contains(@type,'password')]</arg>
 <arg>text=123456</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231204 17:09:28.913" level="INFO">Typing text '123456' into text field '//input[contains(@type,'password')]'.</msg>
-<status status="PASS" starttime="20231204 17:09:28.913" endtime="20231204 17:09:28.928"/>
+<msg timestamp="20231212 14:56:18.671" level="INFO">Typing text '123456' into text field '//input[contains(@type,'password')]'.</msg>
+<status status="PASS" starttime="20231212 14:56:18.669" endtime="20231212 14:56:18.715"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>locator=//button[@class='btn btn-primary w-100 fw-semibold'][contains(.,'Entrar')]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231204 17:09:28.928" level="INFO">Clicking element '//button[@class='btn btn-primary w-100 fw-semibold'][contains(.,'Entrar')]'.</msg>
-<status status="PASS" starttime="20231204 17:09:28.928" endtime="20231204 17:09:29.180"/>
+<msg timestamp="20231212 14:56:18.722" level="INFO">Clicking element '//button[@class='btn btn-primary w-100 fw-semibold'][contains(.,'Entrar')]'.</msg>
+<status status="PASS" starttime="20231212 14:56:18.715" endtime="20231212 14:56:18.995"/>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <arg>text=Bem-vindo ao intranet do Parcelaconta, RAFAEL PINHEIRO!</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" starttime="20231204 17:09:29.180" endtime="20231204 17:09:29.528"/>
+<status status="PASS" starttime="20231212 14:56:18.995" endtime="20231212 14:56:19.821"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>2</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231204 17:09:31.529" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20231204 17:09:29.529" endtime="20231204 17:09:31.529"/>
+<msg timestamp="20231212 14:56:21.821" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231212 14:56:19.821" endtime="20231212 14:56:21.821"/>
 </kw>
-<status status="PASS" starttime="20231204 17:09:24.364" endtime="20231204 17:09:31.529"/>
+<status status="PASS" starttime="20231212 14:56:12.824" endtime="20231212 14:56:21.822"/>
 </kw>
-<kw name="Quando entrar na tela cadastro_clientes" library="location">
+<kw name="Quando entrar na tela usuario_intranet" library="location">
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>locator=${OPEN/CLOSE}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231204 17:09:31.531" level="INFO">Clicking element '//img[contains(@alt,'Open/Close')]'.</msg>
-<status status="PASS" starttime="20231204 17:09:31.530" endtime="20231204 17:09:31.761"/>
+<msg timestamp="20231212 14:56:21.823" level="INFO">Clicking element '//img[contains(@alt,'Open/Close')]'.</msg>
+<status status="PASS" starttime="20231212 14:56:21.823" endtime="20231212 14:56:22.110"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>locator=${SIDEBAR_CADASTRO}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231204 17:09:31.762" level="INFO">Clicking element '//span[contains(.,'Cadastros')]'.</msg>
-<status status="PASS" starttime="20231204 17:09:31.761" endtime="20231204 17:09:32.032"/>
+<msg timestamp="20231212 14:56:22.110" level="INFO">Clicking element '//span[contains(.,'Cadastros')]'.</msg>
+<status status="PASS" starttime="20231212 14:56:22.110" endtime="20231212 14:56:22.528"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>locator=${SIDEBAR_CADASTRO_CLIENTES}</arg>
+<arg>locator=${SIDEBAR_USUARIO}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231204 17:09:32.032" endtime="20231204 17:09:32.077"/>
+<status status="PASS" starttime="20231212 14:56:22.528" endtime="20231212 14:56:22.581"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>locator=${SIDEBAR_CADASTRO_CLIENTES}</arg>
+<arg>locator=${SIDEBAR_USUARIO}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231204 17:09:32.078" level="INFO">Clicking element 'class=text-itens-sidebar'.</msg>
-<status status="PASS" starttime="20231204 17:09:32.078" endtime="20231204 17:09:32.377"/>
+<msg timestamp="20231212 14:56:22.581" level="INFO">Clicking element '(//span[contains(@class,'text-itens-sidebar')])[3]'.</msg>
+<status status="PASS" starttime="20231212 14:56:22.581" endtime="20231212 14:56:23.093"/>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <arg>text=Bem-vindo ao intranet do Parcelaconta, RAFAEL PINHEIRO!</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" starttime="20231204 17:09:32.377" endtime="20231204 17:09:33.055"/>
+<status status="PASS" starttime="20231212 14:56:23.093" endtime="20231212 14:56:23.158"/>
 </kw>
 <kw name="Wait Until Location Is" library="SeleniumLibrary">
-<arg>expected=${URL_CADASTRO}</arg>
+<arg>expected=${URL_USUARIO}</arg>
 <doc>Waits until the current URL is ``expected``.</doc>
-<status status="PASS" starttime="20231204 17:09:33.055" endtime="20231204 17:09:33.058"/>
+<status status="PASS" starttime="20231212 14:56:23.159" endtime="20231212 14:56:23.164"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>2</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231204 17:09:35.059" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20231204 17:09:33.058" endtime="20231204 17:09:35.059"/>
+<msg timestamp="20231212 14:56:25.165" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231212 14:56:23.164" endtime="20231212 14:56:25.165"/>
 </kw>
-<status status="PASS" starttime="20231204 17:09:31.530" endtime="20231204 17:09:35.059"/>
+<status status="PASS" starttime="20231212 14:56:21.823" endtime="20231212 14:56:25.165"/>
 </kw>
-<kw name="E deve consegui filtrar por id" library="resourcer_cadastro_clientes">
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>locator=//span[@class='h2 d-block mb-0 titulo'][contains(.,'Clientes')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231204 17:09:35.062" endtime="20231204 17:09:35.111"/>
+<kw name="E deve conseguir filtrar por id" library="resourcer_usuario_intranet">
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231212 14:56:30.165" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20231212 14:56:25.165" endtime="20231212 14:56:30.165"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>locator=${CAMPO_ID}</arg>
-<arg>text=50000</arg>
+<arg>text=60000</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231204 17:09:35.111" level="INFO">Typing text '50000' into text field '//input[contains(@placeholder,'INFORME O ID')]'.</msg>
-<status status="PASS" starttime="20231204 17:09:35.111" endtime="20231204 17:09:35.174"/>
+<msg timestamp="20231212 14:56:30.165" level="INFO">Typing text '60000' into text field '//input[contains(@placeholder,'Informe o ID')]'.</msg>
+<status status="PASS" starttime="20231212 14:56:30.165" endtime="20231212 14:56:30.205"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>locator=${APLICAR_FILTRO}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231204 17:09:35.174" level="INFO">Clicking element '//button[contains(.,'Filtrar')]'.</msg>
-<status status="PASS" starttime="20231204 17:09:35.174" endtime="20231204 17:09:35.422"/>
+<msg timestamp="20231212 14:56:30.205" level="INFO">Clicking element '//button[@type='button'][contains(.,'Filtrar')]'.</msg>
+<status status="PASS" starttime="20231212 14:56:30.205" endtime="20231212 14:56:30.428"/>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
-<arg>text=50000</arg>
+<arg>text=60000</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" starttime="20231204 17:09:35.422" endtime="20231204 17:09:35.477"/>
+<status status="PASS" starttime="20231212 14:56:30.428" endtime="20231212 14:56:30.446"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>//td[contains(.,'60000')]</arg>
+<arg>60000</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20231212 14:56:30.446" level="INFO">Verifying element '//td[contains(.,'60000')]' contains exact text '60000'.</msg>
+<status status="PASS" starttime="20231212 14:56:30.446" endtime="20231212 14:56:30.471"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>locator=${LIMPAR_FILTRO}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231204 17:09:35.477" level="INFO">Clicking element '//button[contains(.,'Limpar')]'.</msg>
-<status status="PASS" starttime="20231204 17:09:35.477" endtime="20231204 17:09:38.341"/>
+<msg timestamp="20231212 14:56:30.473" level="INFO">Clicking element '//button[contains(@id,'limpar-filtros')]'.</msg>
+<msg timestamp="20231212 14:56:30.541" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231212 14:56:30.546" level="FAIL">Element with locator '//button[contains(@id,'limpar-filtros')]' not found.</msg>
+<status status="FAIL" starttime="20231212 14:56:30.471" endtime="20231212 14:56:30.552"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>2</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231204 17:09:40.341" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20231204 17:09:38.341" endtime="20231204 17:09:40.341"/>
+<status status="NOT RUN" starttime="20231212 14:56:30.554" endtime="20231212 14:56:30.554"/>
 </kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>locator=//td[contains(.,'TesteLincoln')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231204 17:09:40.341" endtime="20231204 17:09:40.381"/>
+<status status="FAIL" starttime="20231212 14:56:25.165" endtime="20231212 14:56:30.554"/>
 </kw>
-<status status="PASS" starttime="20231204 17:09:35.061" endtime="20231204 17:09:40.381"/>
-</kw>
-<kw name="Executar comando depois do teste" library="resourcer_cadastro_clientes">
-<kw name="Então deletar partner_clients" library="banco">
-<doc>Deleta dados</doc>
-<kw name="Conectar ao Banco de Dados" library="banco">
-<kw name="Connect To Database" library="DatabaseLibrary">
-<arg>${DB_DRIVER}</arg>
-<arg>${DB_NAME}</arg>
-<arg>${DB_USER}</arg>
-<arg>${DB_PASSWORD}</arg>
-<arg>${DB_HOST}</arg>
-<arg>${DB_PORT}</arg>
-<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
-connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
-<msg timestamp="20231204 17:09:40.384" level="INFO">Connecting using : psycopg2.connect(database=parcelaconta_development, user=postgres, password=***, host=localhost, port=5432) </msg>
-<status status="PASS" starttime="20231204 17:09:40.383" endtime="20231204 17:09:40.465"/>
-</kw>
-<status status="PASS" starttime="20231204 17:09:40.383" endtime="20231204 17:09:40.465"/>
-</kw>
-<kw name="Execute Sql String" library="DatabaseLibrary">
-<var>${result}</var>
-<arg>DELETE FROM public.partner_clients WHERE id=100000</arg>
-<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
-True to run command without an explicit transaction commit or rollback.</doc>
-<msg timestamp="20231204 17:09:40.465" level="INFO">Executing : Execute SQL String  |  DELETE FROM public.partner_clients WHERE id=100000 </msg>
-<msg timestamp="20231204 17:09:40.468" level="INFO">${result} = None</msg>
-<status status="PASS" starttime="20231204 17:09:40.465" endtime="20231204 17:09:40.468"/>
-</kw>
-<status status="PASS" starttime="20231204 17:09:40.383" endtime="20231204 17:09:40.468"/>
-</kw>
-<kw name="Então deletar partners" library="banco">
-<doc>Deleta dados</doc>
-<kw name="Conectar ao Banco de Dados" library="banco">
-<kw name="Connect To Database" library="DatabaseLibrary">
-<arg>${DB_DRIVER}</arg>
-<arg>${DB_NAME}</arg>
-<arg>${DB_USER}</arg>
-<arg>${DB_PASSWORD}</arg>
-<arg>${DB_HOST}</arg>
-<arg>${DB_PORT}</arg>
-<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
-connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
-<msg timestamp="20231204 17:09:40.469" level="INFO">Connecting using : psycopg2.connect(database=parcelaconta_development, user=postgres, password=***, host=localhost, port=5432) </msg>
-<status status="PASS" starttime="20231204 17:09:40.468" endtime="20231204 17:09:40.538"/>
-</kw>
-<status status="PASS" starttime="20231204 17:09:40.468" endtime="20231204 17:09:40.538"/>
-</kw>
-<kw name="Execute Sql String" library="DatabaseLibrary">
-<var>${result}</var>
-<arg>DELETE FROM public.partners WHERE id=70000</arg>
-<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
-True to run command without an explicit transaction commit or rollback.</doc>
-<msg timestamp="20231204 17:09:40.538" level="INFO">Executing : Execute SQL String  |  DELETE FROM public.partners WHERE id=70000 </msg>
-<msg timestamp="20231204 17:09:40.542" level="INFO">${result} = None</msg>
-<status status="PASS" starttime="20231204 17:09:40.538" endtime="20231204 17:09:40.542"/>
-</kw>
-<status status="PASS" starttime="20231204 17:09:40.468" endtime="20231204 17:09:40.542"/>
-</kw>
-<kw name="Então deletar cliente" library="banco">
-<doc>Deleta dados</doc>
-<kw name="Conectar ao Banco de Dados" library="banco">
-<kw name="Connect To Database" library="DatabaseLibrary">
-<arg>${DB_DRIVER}</arg>
-<arg>${DB_NAME}</arg>
-<arg>${DB_USER}</arg>
-<arg>${DB_PASSWORD}</arg>
-<arg>${DB_HOST}</arg>
-<arg>${DB_PORT}</arg>
-<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
-connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
-<msg timestamp="20231204 17:09:40.543" level="INFO">Connecting using : psycopg2.connect(database=parcelaconta_development, user=postgres, password=***, host=localhost, port=5432) </msg>
-<status status="PASS" starttime="20231204 17:09:40.542" endtime="20231204 17:09:40.609"/>
-</kw>
-<status status="PASS" starttime="20231204 17:09:40.542" endtime="20231204 17:09:40.609"/>
-</kw>
-<kw name="Execute Sql String" library="DatabaseLibrary">
-<var>${result}</var>
-<arg>DELETE FROM public.clients WHERE id=50000</arg>
-<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
-True to run command without an explicit transaction commit or rollback.</doc>
-<msg timestamp="20231204 17:09:40.610" level="INFO">Executing : Execute SQL String  |  DELETE FROM public.clients WHERE id=50000 </msg>
-<msg timestamp="20231204 17:09:40.640" level="INFO">${result} = None</msg>
-<status status="PASS" starttime="20231204 17:09:40.610" endtime="20231204 17:09:40.640"/>
-</kw>
-<status status="PASS" starttime="20231204 17:09:40.542" endtime="20231204 17:09:40.640"/>
-</kw>
-<status status="PASS" starttime="20231204 17:09:40.383" endtime="20231204 17:09:40.640"/>
+<kw name="Executar comando depois do teste" library="resourcer_usuario_intranet">
+<status status="NOT RUN" starttime="20231212 14:56:30.554" endtime="20231212 14:56:30.554"/>
 </kw>
 <kw name="Fechar o navegador" library="location" type="TEARDOWN">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20231204 17:09:40.640" endtime="20231204 17:09:43.972"/>
+<status status="PASS" starttime="20231212 14:56:30.555" endtime="20231212 14:56:34.554"/>
 </kw>
-<status status="PASS" starttime="20231204 17:09:40.640" endtime="20231204 17:09:43.972"/>
+<status status="PASS" starttime="20231212 14:56:30.555" endtime="20231212 14:56:34.554"/>
 </kw>
-<doc>Tela cadastro</doc>
 <tag>id</tag>
-<tag>todos_cadastro_Clientes</tag>
-<status status="PASS" starttime="20231204 17:09:15.203" endtime="20231204 17:09:43.972"/>
+<tag>todos_usuario_intranet</tag>
+<status status="FAIL" starttime="20231212 14:56:04.326" endtime="20231212 14:56:34.554">Element with locator '//button[contains(@id,'limpar-filtros')]' not found.</status>
 </test>
-<status status="PASS" starttime="20231204 17:09:14.977" endtime="20231204 17:09:43.974"/>
+<test id="s1-t2" name="Caso de Teste 2: Testando todos os filtros: Filtro por nome" line="21">
+<kw name="Abrir Site intranet" library="location" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>browser=firefox</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231212 14:56:34.557" level="INFO">Opening browser 'firefox' to base url 'None'.</msg>
+<status status="PASS" starttime="20231212 14:56:34.557" endtime="20231212 14:56:42.751"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231212 14:56:42.751" endtime="20231212 14:56:42.754"/>
+</kw>
+<status status="PASS" starttime="20231212 14:56:34.557" endtime="20231212 14:56:42.754"/>
+</kw>
+<kw name="Executar comando antes do teste" library="resourcer_usuario_intranet">
+<kw name="Então deletar users_intranet" library="banco">
+<doc>Deleta dados</doc>
+<kw name="Conectar ao Banco de Dados" library="banco">
+<kw name="Connect To Database" library="DatabaseLibrary">
+<arg>${DB_DRIVER}</arg>
+<arg>${DB_NAME}</arg>
+<arg>${DB_USER}</arg>
+<arg>${DB_PASSWORD}</arg>
+<arg>${DB_HOST}</arg>
+<arg>${DB_PORT}</arg>
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
+<msg timestamp="20231212 14:56:42.756" level="INFO">Connecting using : psycopg2.connect(database=parcelaconta_development, user=postgres, password=***, host=localhost, port=5432) </msg>
+<status status="PASS" starttime="20231212 14:56:42.756" endtime="20231212 14:56:42.839"/>
+</kw>
+<status status="PASS" starttime="20231212 14:56:42.756" endtime="20231212 14:56:42.839"/>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<var>${result}</var>
+<arg>DELETE FROM public.intranet_users WHERE id=60000</arg>
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<msg timestamp="20231212 14:56:42.839" level="INFO">Executing : Execute SQL String  |  DELETE FROM public.intranet_users WHERE id=60000 </msg>
+<msg timestamp="20231212 14:56:42.841" level="INFO">${result} = None</msg>
+<status status="PASS" starttime="20231212 14:56:42.839" endtime="20231212 14:56:42.841"/>
+</kw>
+<status status="PASS" starttime="20231212 14:56:42.756" endtime="20231212 14:56:42.841"/>
+</kw>
+<kw name="Quando inserir dados na tabela usuario_intranet" library="banco">
+<doc>Insere dados na tabela de exemplo.</doc>
+<kw name="Conectar ao Banco de Dados" library="banco">
+<kw name="Connect To Database" library="DatabaseLibrary">
+<arg>${DB_DRIVER}</arg>
+<arg>${DB_NAME}</arg>
+<arg>${DB_USER}</arg>
+<arg>${DB_PASSWORD}</arg>
+<arg>${DB_HOST}</arg>
+<arg>${DB_PORT}</arg>
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
+<msg timestamp="20231212 14:56:42.841" level="INFO">Connecting using : psycopg2.connect(database=parcelaconta_development, user=postgres, password=***, host=localhost, port=5432) </msg>
+<status status="PASS" starttime="20231212 14:56:42.841" endtime="20231212 14:56:42.921"/>
+</kw>
+<status status="PASS" starttime="20231212 14:56:42.841" endtime="20231212 14:56:42.921"/>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<var>${result}</var>
+<arg>INSERT INTO public.intranet_users (id, name, email, phone, password_digest, active, role, created_at, updated_at, profile_users_id )VALUES (60000, 'LINK_TEST', 'LINK_TEST@GMAIL.COM', '85985763075', '$2a$12$IQjDl278SCiLUfHL1eRz7ucZWxvHUnoboUzYH0OgO02U9qmnqPnKK', 'TRUE', 'ADMIN', '2023-10-23 16:31:00.22457', '2023-10-23 16:31:00.22457', '5');</arg>
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<msg timestamp="20231212 14:56:42.921" level="INFO">Executing : Execute SQL String  |  INSERT INTO public.intranet_users (id, name, email, phone, password_digest, active, role, created_at, updated_at, profile_users_id )VALUES (60000, 'LINK_TEST', 'LINK_TEST@GMAIL.COM', '85985763075', '$2a$12$IQjDl278SCiLUfHL1eRz7ucZWxvHUnoboUzYH0OgO02U9qmnqPnKK', 'TRUE', 'ADMIN', '2023-10-23 16:31:00.22457', '2023-10-23 16:31:00.22457', '5'); </msg>
+<msg timestamp="20231212 14:56:42.925" level="INFO">${result} = None</msg>
+<status status="PASS" starttime="20231212 14:56:42.921" endtime="20231212 14:56:42.925"/>
+</kw>
+<status status="PASS" starttime="20231212 14:56:42.841" endtime="20231212 14:56:42.925"/>
+</kw>
+<status status="PASS" starttime="20231212 14:56:42.756" endtime="20231212 14:56:42.925"/>
+</kw>
+<kw name="Dado fazendo login" library="location">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>url=${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231212 14:56:42.925" level="INFO">Opening url 'http://localhost:8080/auth/login'</msg>
+<status status="PASS" starttime="20231212 14:56:42.925" endtime="20231212 14:56:45.856"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231212 14:56:47.856" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231212 14:56:45.856" endtime="20231212 14:56:47.856"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>locator=//input[contains(@type,'text')]</arg>
+<arg>text=RAFAEL.PINHEIRO@FIXPAY.COM.BR</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231212 14:56:47.856" level="INFO">Typing text 'RAFAEL.PINHEIRO@FIXPAY.COM.BR' into text field '//input[contains(@type,'text')]'.</msg>
+<status status="PASS" starttime="20231212 14:56:47.856" endtime="20231212 14:56:47.980"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>locator=//input[contains(@type,'password')]</arg>
+<arg>text=123456</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231212 14:56:47.987" level="INFO">Typing text '123456' into text field '//input[contains(@type,'password')]'.</msg>
+<status status="PASS" starttime="20231212 14:56:47.987" endtime="20231212 14:56:48.018"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=//button[@class='btn btn-primary w-100 fw-semibold'][contains(.,'Entrar')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:56:48.018" level="INFO">Clicking element '//button[@class='btn btn-primary w-100 fw-semibold'][contains(.,'Entrar')]'.</msg>
+<status status="PASS" starttime="20231212 14:56:48.018" endtime="20231212 14:56:48.264"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>text=Bem-vindo ao intranet do Parcelaconta, RAFAEL PINHEIRO!</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231212 14:56:48.264" endtime="20231212 14:56:48.788"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231212 14:56:50.790" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231212 14:56:48.789" endtime="20231212 14:56:50.790"/>
+</kw>
+<status status="PASS" starttime="20231212 14:56:42.925" endtime="20231212 14:56:50.791"/>
+</kw>
+<kw name="Quando entrar na tela usuario_intranet" library="location">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${OPEN/CLOSE}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:56:50.796" level="INFO">Clicking element '//img[contains(@alt,'Open/Close')]'.</msg>
+<status status="PASS" starttime="20231212 14:56:50.793" endtime="20231212 14:56:51.057"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${SIDEBAR_CADASTRO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:56:51.061" level="INFO">Clicking element '//span[contains(.,'Cadastros')]'.</msg>
+<status status="PASS" starttime="20231212 14:56:51.057" endtime="20231212 14:56:51.440"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>locator=${SIDEBAR_USUARIO}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231212 14:56:51.440" endtime="20231212 14:56:51.503"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${SIDEBAR_USUARIO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:56:51.506" level="INFO">Clicking element '(//span[contains(@class,'text-itens-sidebar')])[3]'.</msg>
+<status status="PASS" starttime="20231212 14:56:51.504" endtime="20231212 14:56:51.936"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>text=Bem-vindo ao intranet do Parcelaconta, RAFAEL PINHEIRO!</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231212 14:56:51.936" endtime="20231212 14:56:51.971"/>
+</kw>
+<kw name="Wait Until Location Is" library="SeleniumLibrary">
+<arg>expected=${URL_USUARIO}</arg>
+<doc>Waits until the current URL is ``expected``.</doc>
+<status status="PASS" starttime="20231212 14:56:51.971" endtime="20231212 14:56:51.977"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231212 14:56:53.978" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231212 14:56:51.978" endtime="20231212 14:56:53.979"/>
+</kw>
+<status status="PASS" starttime="20231212 14:56:50.792" endtime="20231212 14:56:53.979"/>
+</kw>
+<kw name="E deve conseguir filtrar por nome" library="resourcer_usuario_intranet">
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231212 14:56:58.979" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20231212 14:56:53.979" endtime="20231212 14:56:58.979"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>locator=${CAMPO_NOME}</arg>
+<arg>text=LINK_TEST</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231212 14:56:58.979" level="INFO">Typing text 'LINK_TEST' into text field '//input[contains(@aria-placeholder,'Informe o Nome')]'.</msg>
+<status status="PASS" starttime="20231212 14:56:58.979" endtime="20231212 14:56:59.043"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${APLICAR_FILTRO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:56:59.043" level="INFO">Clicking element '//button[@type='button'][contains(.,'Filtrar')]'.</msg>
+<status status="PASS" starttime="20231212 14:56:59.043" endtime="20231212 14:56:59.276"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>text=LINK_TEST</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<msg timestamp="20231212 14:57:04.425" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231212 14:57:04.425" level="FAIL">Text 'LINK_TEST' did not appear in 5 seconds.</msg>
+<status status="FAIL" starttime="20231212 14:56:59.276" endtime="20231212 14:57:04.426"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>(//td[contains(.,'LINK_TEST')])[1]</arg>
+<arg>LINK_TEST</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="NOT RUN" starttime="20231212 14:57:04.426" endtime="20231212 14:57:04.426"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${LIMPAR_FILTRO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231212 14:57:04.426" endtime="20231212 14:57:04.426"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231212 14:57:04.427" endtime="20231212 14:57:04.427"/>
+</kw>
+<status status="FAIL" starttime="20231212 14:56:53.979" endtime="20231212 14:57:04.427"/>
+</kw>
+<kw name="Executar comando depois do teste" library="resourcer_usuario_intranet">
+<status status="NOT RUN" starttime="20231212 14:57:04.427" endtime="20231212 14:57:04.427"/>
+</kw>
+<kw name="Fechar o navegador" library="location" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231212 14:57:04.427" endtime="20231212 14:57:07.721"/>
+</kw>
+<status status="PASS" starttime="20231212 14:57:04.427" endtime="20231212 14:57:07.721"/>
+</kw>
+<tag>nome</tag>
+<tag>todos_usuario_intranet</tag>
+<status status="FAIL" starttime="20231212 14:56:34.557" endtime="20231212 14:57:07.721">Text 'LINK_TEST' did not appear in 5 seconds.</status>
+</test>
+<test id="s1-t3" name="Caso de Teste 3: Testando todos os filtros: Filtro por permissão" line="29">
+<kw name="Abrir Site intranet" library="location" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>browser=firefox</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231212 14:57:07.740" level="INFO">Opening browser 'firefox' to base url 'None'.</msg>
+<status status="PASS" starttime="20231212 14:57:07.739" endtime="20231212 14:57:15.610"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231212 14:57:15.610" endtime="20231212 14:57:15.610"/>
+</kw>
+<status status="PASS" starttime="20231212 14:57:07.737" endtime="20231212 14:57:15.610"/>
+</kw>
+<kw name="Executar comando antes do teste" library="resourcer_usuario_intranet">
+<kw name="Então deletar users_intranet" library="banco">
+<doc>Deleta dados</doc>
+<kw name="Conectar ao Banco de Dados" library="banco">
+<kw name="Connect To Database" library="DatabaseLibrary">
+<arg>${DB_DRIVER}</arg>
+<arg>${DB_NAME}</arg>
+<arg>${DB_USER}</arg>
+<arg>${DB_PASSWORD}</arg>
+<arg>${DB_HOST}</arg>
+<arg>${DB_PORT}</arg>
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
+<msg timestamp="20231212 14:57:15.610" level="INFO">Connecting using : psycopg2.connect(database=parcelaconta_development, user=postgres, password=***, host=localhost, port=5432) </msg>
+<status status="PASS" starttime="20231212 14:57:15.610" endtime="20231212 14:57:15.742"/>
+</kw>
+<status status="PASS" starttime="20231212 14:57:15.610" endtime="20231212 14:57:15.742"/>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<var>${result}</var>
+<arg>DELETE FROM public.intranet_users WHERE id=60000</arg>
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<msg timestamp="20231212 14:57:15.742" level="INFO">Executing : Execute SQL String  |  DELETE FROM public.intranet_users WHERE id=60000 </msg>
+<msg timestamp="20231212 14:57:15.744" level="INFO">${result} = None</msg>
+<status status="PASS" starttime="20231212 14:57:15.742" endtime="20231212 14:57:15.744"/>
+</kw>
+<status status="PASS" starttime="20231212 14:57:15.610" endtime="20231212 14:57:15.744"/>
+</kw>
+<kw name="Quando inserir dados na tabela usuario_intranet" library="banco">
+<doc>Insere dados na tabela de exemplo.</doc>
+<kw name="Conectar ao Banco de Dados" library="banco">
+<kw name="Connect To Database" library="DatabaseLibrary">
+<arg>${DB_DRIVER}</arg>
+<arg>${DB_NAME}</arg>
+<arg>${DB_USER}</arg>
+<arg>${DB_PASSWORD}</arg>
+<arg>${DB_HOST}</arg>
+<arg>${DB_PORT}</arg>
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
+<msg timestamp="20231212 14:57:15.746" level="INFO">Connecting using : psycopg2.connect(database=parcelaconta_development, user=postgres, password=***, host=localhost, port=5432) </msg>
+<status status="PASS" starttime="20231212 14:57:15.744" endtime="20231212 14:57:15.813"/>
+</kw>
+<status status="PASS" starttime="20231212 14:57:15.744" endtime="20231212 14:57:15.813"/>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<var>${result}</var>
+<arg>INSERT INTO public.intranet_users (id, name, email, phone, password_digest, active, role, created_at, updated_at, profile_users_id )VALUES (60000, 'LINK_TEST', 'LINK_TEST@GMAIL.COM', '85985763075', '$2a$12$IQjDl278SCiLUfHL1eRz7ucZWxvHUnoboUzYH0OgO02U9qmnqPnKK', 'TRUE', 'ADMIN', '2023-10-23 16:31:00.22457', '2023-10-23 16:31:00.22457', '5');</arg>
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<msg timestamp="20231212 14:57:15.813" level="INFO">Executing : Execute SQL String  |  INSERT INTO public.intranet_users (id, name, email, phone, password_digest, active, role, created_at, updated_at, profile_users_id )VALUES (60000, 'LINK_TEST', 'LINK_TEST@GMAIL.COM', '85985763075', '$2a$12$IQjDl278SCiLUfHL1eRz7ucZWxvHUnoboUzYH0OgO02U9qmnqPnKK', 'TRUE', 'ADMIN', '2023-10-23 16:31:00.22457', '2023-10-23 16:31:00.22457', '5'); </msg>
+<msg timestamp="20231212 14:57:15.815" level="INFO">${result} = None</msg>
+<status status="PASS" starttime="20231212 14:57:15.813" endtime="20231212 14:57:15.815"/>
+</kw>
+<status status="PASS" starttime="20231212 14:57:15.744" endtime="20231212 14:57:15.815"/>
+</kw>
+<status status="PASS" starttime="20231212 14:57:15.610" endtime="20231212 14:57:15.815"/>
+</kw>
+<kw name="Dado fazendo login" library="location">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>url=${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231212 14:57:15.815" level="INFO">Opening url 'http://localhost:8080/auth/login'</msg>
+<status status="PASS" starttime="20231212 14:57:15.815" endtime="20231212 14:57:18.542"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231212 14:57:20.543" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231212 14:57:18.542" endtime="20231212 14:57:20.543"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>locator=//input[contains(@type,'text')]</arg>
+<arg>text=RAFAEL.PINHEIRO@FIXPAY.COM.BR</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231212 14:57:20.543" level="INFO">Typing text 'RAFAEL.PINHEIRO@FIXPAY.COM.BR' into text field '//input[contains(@type,'text')]'.</msg>
+<status status="PASS" starttime="20231212 14:57:20.543" endtime="20231212 14:57:20.695"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>locator=//input[contains(@type,'password')]</arg>
+<arg>text=123456</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231212 14:57:20.695" level="INFO">Typing text '123456' into text field '//input[contains(@type,'password')]'.</msg>
+<status status="PASS" starttime="20231212 14:57:20.695" endtime="20231212 14:57:20.718"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=//button[@class='btn btn-primary w-100 fw-semibold'][contains(.,'Entrar')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:57:20.719" level="INFO">Clicking element '//button[@class='btn btn-primary w-100 fw-semibold'][contains(.,'Entrar')]'.</msg>
+<status status="PASS" starttime="20231212 14:57:20.718" endtime="20231212 14:57:20.960"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>text=Bem-vindo ao intranet do Parcelaconta, RAFAEL PINHEIRO!</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231212 14:57:20.960" endtime="20231212 14:57:21.718"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231212 14:57:23.719" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231212 14:57:21.718" endtime="20231212 14:57:23.720"/>
+</kw>
+<status status="PASS" starttime="20231212 14:57:15.815" endtime="20231212 14:57:23.720"/>
+</kw>
+<kw name="Quando entrar na tela usuario_intranet" library="location">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${OPEN/CLOSE}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:57:23.724" level="INFO">Clicking element '//img[contains(@alt,'Open/Close')]'.</msg>
+<status status="PASS" starttime="20231212 14:57:23.722" endtime="20231212 14:57:23.984"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${SIDEBAR_CADASTRO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:57:23.986" level="INFO">Clicking element '//span[contains(.,'Cadastros')]'.</msg>
+<status status="PASS" starttime="20231212 14:57:23.985" endtime="20231212 14:57:24.389"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>locator=${SIDEBAR_USUARIO}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231212 14:57:24.389" endtime="20231212 14:57:24.469"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${SIDEBAR_USUARIO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:57:24.471" level="INFO">Clicking element '(//span[contains(@class,'text-itens-sidebar')])[3]'.</msg>
+<status status="PASS" starttime="20231212 14:57:24.469" endtime="20231212 14:57:24.903"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>text=Bem-vindo ao intranet do Parcelaconta, RAFAEL PINHEIRO!</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231212 14:57:24.903" endtime="20231212 14:57:24.935"/>
+</kw>
+<kw name="Wait Until Location Is" library="SeleniumLibrary">
+<arg>expected=${URL_USUARIO}</arg>
+<doc>Waits until the current URL is ``expected``.</doc>
+<status status="PASS" starttime="20231212 14:57:24.935" endtime="20231212 14:57:24.939"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231212 14:57:26.939" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231212 14:57:24.939" endtime="20231212 14:57:26.939"/>
+</kw>
+<status status="PASS" starttime="20231212 14:57:23.721" endtime="20231212 14:57:26.940"/>
+</kw>
+<kw name="E deve conseguir filtrar por permissão" library="resourcer_usuario_intranet">
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231212 14:57:31.944" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20231212 14:57:26.942" endtime="20231212 14:57:31.944"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=//input[contains(@aria-placeholder,'Selecione Permissão')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:57:31.944" level="INFO">Clicking element '//input[contains(@aria-placeholder,'Selecione Permissão')]'.</msg>
+<status status="PASS" starttime="20231212 14:57:31.944" endtime="20231212 14:57:32.223"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=//li[@class='multiselect-option'][contains(.,'CS')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:57:32.224" level="INFO">Clicking element '//li[@class='multiselect-option'][contains(.,'CS')]'.</msg>
+<status status="PASS" starttime="20231212 14:57:32.223" endtime="20231212 14:57:32.513"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${APLICAR_FILTRO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:57:32.513" level="INFO">Clicking element '//button[@type='button'][contains(.,'Filtrar')]'.</msg>
+<status status="PASS" starttime="20231212 14:57:32.513" endtime="20231212 14:57:32.807"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>text=CS</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231212 14:57:32.807" endtime="20231212 14:57:32.872"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>//td[contains(.,'CS')]</arg>
+<arg>CS</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20231212 14:57:32.875" level="INFO">Verifying element '//td[contains(.,'CS')]' contains exact text 'CS'.</msg>
+<status status="PASS" starttime="20231212 14:57:32.872" endtime="20231212 14:57:32.916"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${LIMPAR_FILTRO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:57:32.921" level="INFO">Clicking element '//button[contains(@id,'limpar-filtros')]'.</msg>
+<msg timestamp="20231212 14:57:32.979" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231212 14:57:32.979" level="FAIL">Element with locator '//button[contains(@id,'limpar-filtros')]' not found.</msg>
+<status status="FAIL" starttime="20231212 14:57:32.916" endtime="20231212 14:57:32.979"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231212 14:57:32.979" endtime="20231212 14:57:32.979"/>
+</kw>
+<status status="FAIL" starttime="20231212 14:57:26.941" endtime="20231212 14:57:32.979"/>
+</kw>
+<kw name="Executar comando depois do teste" library="resourcer_usuario_intranet">
+<status status="NOT RUN" starttime="20231212 14:57:32.979" endtime="20231212 14:57:32.979"/>
+</kw>
+<kw name="Fechar o navegador" library="location" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231212 14:57:32.979" endtime="20231212 14:57:36.459"/>
+</kw>
+<status status="PASS" starttime="20231212 14:57:32.979" endtime="20231212 14:57:36.459"/>
+</kw>
+<tag>permissão</tag>
+<tag>todos_usuario_intranet</tag>
+<status status="FAIL" starttime="20231212 14:57:07.736" endtime="20231212 14:57:36.459">Element with locator '//button[contains(@id,'limpar-filtros')]' not found.</status>
+</test>
+<test id="s1-t4" name="Caso de Teste 4: Testando editar e excluir" line="37">
+<kw name="Abrir Site intranet" library="location" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>browser=firefox</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231212 14:57:36.459" level="INFO">Opening browser 'firefox' to base url 'None'.</msg>
+<status status="PASS" starttime="20231212 14:57:36.459" endtime="20231212 14:57:44.497"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231212 14:57:44.498" endtime="20231212 14:57:44.498"/>
+</kw>
+<status status="PASS" starttime="20231212 14:57:36.459" endtime="20231212 14:57:44.498"/>
+</kw>
+<kw name="Executar comando antes do teste" library="resourcer_usuario_intranet">
+<kw name="Então deletar users_intranet" library="banco">
+<doc>Deleta dados</doc>
+<kw name="Conectar ao Banco de Dados" library="banco">
+<kw name="Connect To Database" library="DatabaseLibrary">
+<arg>${DB_DRIVER}</arg>
+<arg>${DB_NAME}</arg>
+<arg>${DB_USER}</arg>
+<arg>${DB_PASSWORD}</arg>
+<arg>${DB_HOST}</arg>
+<arg>${DB_PORT}</arg>
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
+<msg timestamp="20231212 14:57:44.502" level="INFO">Connecting using : psycopg2.connect(database=parcelaconta_development, user=postgres, password=***, host=localhost, port=5432) </msg>
+<status status="PASS" starttime="20231212 14:57:44.501" endtime="20231212 14:57:44.593"/>
+</kw>
+<status status="PASS" starttime="20231212 14:57:44.501" endtime="20231212 14:57:44.593"/>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<var>${result}</var>
+<arg>DELETE FROM public.intranet_users WHERE id=60000</arg>
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<msg timestamp="20231212 14:57:44.593" level="INFO">Executing : Execute SQL String  |  DELETE FROM public.intranet_users WHERE id=60000 </msg>
+<msg timestamp="20231212 14:57:44.595" level="INFO">${result} = None</msg>
+<status status="PASS" starttime="20231212 14:57:44.593" endtime="20231212 14:57:44.595"/>
+</kw>
+<status status="PASS" starttime="20231212 14:57:44.501" endtime="20231212 14:57:44.595"/>
+</kw>
+<kw name="Quando inserir dados na tabela usuario_intranet" library="banco">
+<doc>Insere dados na tabela de exemplo.</doc>
+<kw name="Conectar ao Banco de Dados" library="banco">
+<kw name="Connect To Database" library="DatabaseLibrary">
+<arg>${DB_DRIVER}</arg>
+<arg>${DB_NAME}</arg>
+<arg>${DB_USER}</arg>
+<arg>${DB_PASSWORD}</arg>
+<arg>${DB_HOST}</arg>
+<arg>${DB_PORT}</arg>
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
+<msg timestamp="20231212 14:57:44.595" level="INFO">Connecting using : psycopg2.connect(database=parcelaconta_development, user=postgres, password=***, host=localhost, port=5432) </msg>
+<status status="PASS" starttime="20231212 14:57:44.595" endtime="20231212 14:57:44.655"/>
+</kw>
+<status status="PASS" starttime="20231212 14:57:44.595" endtime="20231212 14:57:44.655"/>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<var>${result}</var>
+<arg>INSERT INTO public.intranet_users (id, name, email, phone, password_digest, active, role, created_at, updated_at, profile_users_id )VALUES (60000, 'LINK_TEST', 'LINK_TEST@GMAIL.COM', '85985763075', '$2a$12$IQjDl278SCiLUfHL1eRz7ucZWxvHUnoboUzYH0OgO02U9qmnqPnKK', 'TRUE', 'ADMIN', '2023-10-23 16:31:00.22457', '2023-10-23 16:31:00.22457', '5');</arg>
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<msg timestamp="20231212 14:57:44.655" level="INFO">Executing : Execute SQL String  |  INSERT INTO public.intranet_users (id, name, email, phone, password_digest, active, role, created_at, updated_at, profile_users_id )VALUES (60000, 'LINK_TEST', 'LINK_TEST@GMAIL.COM', '85985763075', '$2a$12$IQjDl278SCiLUfHL1eRz7ucZWxvHUnoboUzYH0OgO02U9qmnqPnKK', 'TRUE', 'ADMIN', '2023-10-23 16:31:00.22457', '2023-10-23 16:31:00.22457', '5'); </msg>
+<msg timestamp="20231212 14:57:44.668" level="INFO">${result} = None</msg>
+<status status="PASS" starttime="20231212 14:57:44.655" endtime="20231212 14:57:44.668"/>
+</kw>
+<status status="PASS" starttime="20231212 14:57:44.595" endtime="20231212 14:57:44.668"/>
+</kw>
+<status status="PASS" starttime="20231212 14:57:44.498" endtime="20231212 14:57:44.668"/>
+</kw>
+<kw name="Dado fazendo login" library="location">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>url=${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231212 14:57:44.668" level="INFO">Opening url 'http://localhost:8080/auth/login'</msg>
+<status status="PASS" starttime="20231212 14:57:44.668" endtime="20231212 14:57:47.112"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231212 14:57:49.122" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231212 14:57:47.121" endtime="20231212 14:57:49.122"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>locator=//input[contains(@type,'text')]</arg>
+<arg>text=RAFAEL.PINHEIRO@FIXPAY.COM.BR</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231212 14:57:49.122" level="INFO">Typing text 'RAFAEL.PINHEIRO@FIXPAY.COM.BR' into text field '//input[contains(@type,'text')]'.</msg>
+<status status="PASS" starttime="20231212 14:57:49.122" endtime="20231212 14:57:49.227"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>locator=//input[contains(@type,'password')]</arg>
+<arg>text=123456</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231212 14:57:49.227" level="INFO">Typing text '123456' into text field '//input[contains(@type,'password')]'.</msg>
+<status status="PASS" starttime="20231212 14:57:49.227" endtime="20231212 14:57:49.260"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=//button[@class='btn btn-primary w-100 fw-semibold'][contains(.,'Entrar')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:57:49.260" level="INFO">Clicking element '//button[@class='btn btn-primary w-100 fw-semibold'][contains(.,'Entrar')]'.</msg>
+<status status="PASS" starttime="20231212 14:57:49.260" endtime="20231212 14:57:49.496"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>text=Bem-vindo ao intranet do Parcelaconta, RAFAEL PINHEIRO!</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231212 14:57:49.496" endtime="20231212 14:57:50.058"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231212 14:57:52.058" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231212 14:57:50.058" endtime="20231212 14:57:52.058"/>
+</kw>
+<status status="PASS" starttime="20231212 14:57:44.668" endtime="20231212 14:57:52.058"/>
+</kw>
+<kw name="Quando entrar na tela usuario_intranet" library="location">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${OPEN/CLOSE}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:57:52.061" level="INFO">Clicking element '//img[contains(@alt,'Open/Close')]'.</msg>
+<status status="PASS" starttime="20231212 14:57:52.059" endtime="20231212 14:57:52.317"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${SIDEBAR_CADASTRO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:57:52.321" level="INFO">Clicking element '//span[contains(.,'Cadastros')]'.</msg>
+<status status="PASS" starttime="20231212 14:57:52.318" endtime="20231212 14:57:52.675"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>locator=${SIDEBAR_USUARIO}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231212 14:57:52.676" endtime="20231212 14:57:52.744"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${SIDEBAR_USUARIO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:57:52.747" level="INFO">Clicking element '(//span[contains(@class,'text-itens-sidebar')])[3]'.</msg>
+<status status="PASS" starttime="20231212 14:57:52.745" endtime="20231212 14:57:53.289"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>text=Bem-vindo ao intranet do Parcelaconta, RAFAEL PINHEIRO!</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231212 14:57:53.289" endtime="20231212 14:57:53.323"/>
+</kw>
+<kw name="Wait Until Location Is" library="SeleniumLibrary">
+<arg>expected=${URL_USUARIO}</arg>
+<doc>Waits until the current URL is ``expected``.</doc>
+<status status="PASS" starttime="20231212 14:57:53.323" endtime="20231212 14:57:53.326"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231212 14:57:55.328" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231212 14:57:53.327" endtime="20231212 14:57:55.328"/>
+</kw>
+<status status="PASS" starttime="20231212 14:57:52.059" endtime="20231212 14:57:55.328"/>
+</kw>
+<kw name="Então deve conseguir editar e excluir" library="resourcer_usuario_intranet">
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231212 14:58:00.331" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20231212 14:57:55.331" endtime="20231212 14:58:00.331"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=//input[contains(@aria-placeholder,'Selecione Permissão')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:58:00.331" level="INFO">Clicking element '//input[contains(@aria-placeholder,'Selecione Permissão')]'.</msg>
+<status status="PASS" starttime="20231212 14:58:00.331" endtime="20231212 14:58:00.615"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=//li[@class='multiselect-option'][contains(.,'CS')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:58:00.615" level="INFO">Clicking element '//li[@class='multiselect-option'][contains(.,'CS')]'.</msg>
+<status status="PASS" starttime="20231212 14:58:00.615" endtime="20231212 14:58:00.888"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${APLICAR_FILTRO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:58:00.888" level="INFO">Clicking element '//button[@type='button'][contains(.,'Filtrar')]'.</msg>
+<status status="PASS" starttime="20231212 14:58:00.888" endtime="20231212 14:58:01.156"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>text=CS</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231212 14:58:01.156" endtime="20231212 14:58:01.201"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>//td[contains(.,'CS')]</arg>
+<arg>CS</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20231212 14:58:01.201" level="INFO">Verifying element '//td[contains(.,'CS')]' contains exact text 'CS'.</msg>
+<status status="PASS" starttime="20231212 14:58:01.201" endtime="20231212 14:58:01.232"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=//img[contains(@id,'usuario')][@src='/img/dropdown-rosa.b20ce917.svg']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:58:01.234" level="INFO">Clicking element '//img[contains(@id,'usuario')][@src='/img/dropdown-rosa.b20ce917.svg']'.</msg>
+<status status="PASS" starttime="20231212 14:58:01.234" endtime="20231212 14:58:01.486"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=//button[@class='botaoDrop'][contains(.,'Editar')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:58:01.486" level="INFO">Clicking element '//button[@class='botaoDrop'][contains(.,'Editar')]'.</msg>
+<status status="PASS" starttime="20231212 14:58:01.486" endtime="20231212 14:58:01.962"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231212 14:58:03.964" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231212 14:58:01.962" endtime="20231212 14:58:03.964"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>locator=//input[contains(@placeholder,'Editar nome')]</arg>
+<arg>text=LINK_TEST2</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231212 14:58:03.966" level="INFO">Typing text 'LINK_TEST2' into text field '//input[contains(@placeholder,'Editar nome')]'.</msg>
+<status status="PASS" starttime="20231212 14:58:03.964" endtime="20231212 14:58:04.037"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=//button[@type='button'][contains(.,'Salvar')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:58:04.037" level="INFO">Clicking element '//button[@type='button'][contains(.,'Salvar')]'.</msg>
+<status status="PASS" starttime="20231212 14:58:04.037" endtime="20231212 14:58:04.266"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231212 14:58:09.266" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20231212 14:58:04.266" endtime="20231212 14:58:09.266"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>text=Usuário editado!</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231212 14:58:09.266" endtime="20231212 14:58:09.295"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>locator=${CAMPO_ID}</arg>
+<arg>text=60000</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231212 14:58:09.295" level="INFO">Typing text '60000' into text field '//input[contains(@placeholder,'Informe o ID')]'.</msg>
+<status status="PASS" starttime="20231212 14:58:09.295" endtime="20231212 14:58:09.332"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${APLICAR_FILTRO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:58:09.332" level="INFO">Clicking element '//button[@type='button'][contains(.,'Filtrar')]'.</msg>
+<status status="PASS" starttime="20231212 14:58:09.332" endtime="20231212 14:58:09.563"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>text=60000</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231212 14:58:09.563" endtime="20231212 14:58:09.594"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=//img[contains(@id,'usuario')][@src='/img/dropdown-rosa.b20ce917.svg']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:58:09.594" level="INFO">Clicking element '//img[contains(@id,'usuario')][@src='/img/dropdown-rosa.b20ce917.svg']'.</msg>
+<status status="PASS" starttime="20231212 14:58:09.594" endtime="20231212 14:58:09.816"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=//button[@data-bs-toggle='modal'][contains(.,'Excluir')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:58:09.816" level="INFO">Clicking element '//button[@data-bs-toggle='modal'][contains(.,'Excluir')]'.</msg>
+<status status="PASS" starttime="20231212 14:58:09.816" endtime="20231212 14:58:10.068"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>text=Essa ação não poderá ser desfeita</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231212 14:58:10.068" endtime="20231212 14:58:10.102"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=//button[contains(@id,'sim-excluir')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:58:10.104" level="INFO">Clicking element '//button[contains(@id,'sim-excluir')]'.</msg>
+<status status="PASS" starttime="20231212 14:58:10.104" endtime="20231212 14:58:11.622"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231212 14:58:13.623" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231212 14:58:11.622" endtime="20231212 14:58:13.623"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>locator=${CAMPO_ID}</arg>
+<arg>text=60000</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231212 14:58:13.626" level="INFO">Typing text '60000' into text field '//input[contains(@placeholder,'Informe o ID')]'.</msg>
+<status status="PASS" starttime="20231212 14:58:13.624" endtime="20231212 14:58:13.687"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${APLICAR_FILTRO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:58:13.688" level="INFO">Clicking element '//button[@type='button'][contains(.,'Filtrar')]'.</msg>
+<status status="PASS" starttime="20231212 14:58:13.687" endtime="20231212 14:58:13.913"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>text=Não há informações disponíveis para os filtros selecionados.</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<msg timestamp="20231212 14:58:19.063" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231212 14:58:19.063" level="FAIL">Text 'Não há informações disponíveis para os filtros selecionados.' did not appear in 5 seconds.</msg>
+<status status="FAIL" starttime="20231212 14:58:13.914" endtime="20231212 14:58:19.073"/>
+</kw>
+<status status="FAIL" starttime="20231212 14:57:55.330" endtime="20231212 14:58:19.073"/>
+</kw>
+<kw name="Fechar o navegador" library="location" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231212 14:58:19.073" endtime="20231212 14:58:22.633"/>
+</kw>
+<status status="PASS" starttime="20231212 14:58:19.073" endtime="20231212 14:58:22.633"/>
+</kw>
+<tag>editar/excluir</tag>
+<tag>todos_usuario_intranet</tag>
+<status status="FAIL" starttime="20231212 14:57:36.459" endtime="20231212 14:58:22.633">Text 'Não há informações disponíveis para os filtros selecionados.' did not appear in 5 seconds.</status>
+</test>
+<test id="s1-t5" name="Caso de Teste 5: Cadastrar usuário" line="44">
+<kw name="Abrir Site intranet" library="location" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>browser=firefox</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231212 14:58:22.633" level="INFO">Opening browser 'firefox' to base url 'None'.</msg>
+<status status="PASS" starttime="20231212 14:58:22.633" endtime="20231212 14:58:30.855"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231212 14:58:30.855" endtime="20231212 14:58:30.860"/>
+</kw>
+<status status="PASS" starttime="20231212 14:58:22.633" endtime="20231212 14:58:30.860"/>
+</kw>
+<kw name="Dado fazendo login" library="location">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>url=${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231212 14:58:30.860" level="INFO">Opening url 'http://localhost:8080/auth/login'</msg>
+<status status="PASS" starttime="20231212 14:58:30.860" endtime="20231212 14:58:33.358"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231212 14:58:35.362" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231212 14:58:33.362" endtime="20231212 14:58:35.362"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>locator=//input[contains(@type,'text')]</arg>
+<arg>text=RAFAEL.PINHEIRO@FIXPAY.COM.BR</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231212 14:58:35.362" level="INFO">Typing text 'RAFAEL.PINHEIRO@FIXPAY.COM.BR' into text field '//input[contains(@type,'text')]'.</msg>
+<status status="PASS" starttime="20231212 14:58:35.362" endtime="20231212 14:58:35.465"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>locator=//input[contains(@type,'password')]</arg>
+<arg>text=123456</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231212 14:58:35.465" level="INFO">Typing text '123456' into text field '//input[contains(@type,'password')]'.</msg>
+<status status="PASS" starttime="20231212 14:58:35.465" endtime="20231212 14:58:35.514"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=//button[@class='btn btn-primary w-100 fw-semibold'][contains(.,'Entrar')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:58:35.514" level="INFO">Clicking element '//button[@class='btn btn-primary w-100 fw-semibold'][contains(.,'Entrar')]'.</msg>
+<status status="PASS" starttime="20231212 14:58:35.514" endtime="20231212 14:58:35.764"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>text=Bem-vindo ao intranet do Parcelaconta, RAFAEL PINHEIRO!</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231212 14:58:35.764" endtime="20231212 14:58:36.582"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231212 14:58:38.583" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231212 14:58:36.582" endtime="20231212 14:58:38.583"/>
+</kw>
+<status status="PASS" starttime="20231212 14:58:30.860" endtime="20231212 14:58:38.583"/>
+</kw>
+<kw name="Quando entrar na tela usuario_intranet" library="location">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${OPEN/CLOSE}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:58:38.585" level="INFO">Clicking element '//img[contains(@alt,'Open/Close')]'.</msg>
+<status status="PASS" starttime="20231212 14:58:38.584" endtime="20231212 14:58:38.856"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${SIDEBAR_CADASTRO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:58:38.858" level="INFO">Clicking element '//span[contains(.,'Cadastros')]'.</msg>
+<status status="PASS" starttime="20231212 14:58:38.857" endtime="20231212 14:58:39.216"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>locator=${SIDEBAR_USUARIO}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231212 14:58:39.217" endtime="20231212 14:58:39.271"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${SIDEBAR_USUARIO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:58:39.273" level="INFO">Clicking element '(//span[contains(@class,'text-itens-sidebar')])[3]'.</msg>
+<status status="PASS" starttime="20231212 14:58:39.272" endtime="20231212 14:58:39.694"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>text=Bem-vindo ao intranet do Parcelaconta, RAFAEL PINHEIRO!</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231212 14:58:39.695" endtime="20231212 14:58:39.734"/>
+</kw>
+<kw name="Wait Until Location Is" library="SeleniumLibrary">
+<arg>expected=${URL_USUARIO}</arg>
+<doc>Waits until the current URL is ``expected``.</doc>
+<status status="PASS" starttime="20231212 14:58:39.734" endtime="20231212 14:58:39.737"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231212 14:58:41.739" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231212 14:58:39.738" endtime="20231212 14:58:41.739"/>
+</kw>
+<status status="PASS" starttime="20231212 14:58:38.584" endtime="20231212 14:58:41.739"/>
+</kw>
+<kw name="E entrar na tela de cadastrar usuário" library="resourcer_usuario_intranet">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=//button[@class='btn btn-primary btn-responsive'][contains(.,'Cadastrar usuário')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231212 14:58:41.739" level="INFO">Clicking element '//button[@class='btn btn-primary btn-responsive'][contains(.,'Cadastrar usuário')]'.</msg>
+<status status="PASS" starttime="20231212 14:58:41.739" endtime="20231212 14:58:42.158"/>
+</kw>
+<kw name="Wait Until Location Is" library="SeleniumLibrary">
+<arg>expected=${URL_CADASTRO}</arg>
+<doc>Waits until the current URL is ``expected``.</doc>
+<status status="PASS" starttime="20231212 14:58:42.158" endtime="20231212 14:58:42.203"/>
+</kw>
+<status status="PASS" starttime="20231212 14:58:41.739" endtime="20231212 14:58:42.203"/>
+</kw>
+<kw name="Fechar o navegador" library="location" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231212 14:58:42.203" endtime="20231212 14:58:46.376"/>
+</kw>
+<status status="PASS" starttime="20231212 14:58:42.203" endtime="20231212 14:58:46.376"/>
+</kw>
+<tag>cadastrar</tag>
+<tag>todos_usuario_intranet</tag>
+<status status="PASS" starttime="20231212 14:58:22.633" endtime="20231212 14:58:46.376"/>
+</test>
+<status status="FAIL" starttime="20231212 14:56:03.910" endtime="20231212 14:58:46.384"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="1" fail="4" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">id</stat>
-<stat pass="1" fail="0" skip="0">todos_cadastro_Clientes</stat>
+<stat pass="1" fail="0" skip="0">cadastrar</stat>
+<stat pass="0" fail="1" skip="0">editar/excluir</stat>
+<stat pass="0" fail="1" skip="0">id</stat>
+<stat pass="0" fail="1" skip="0">nome</stat>
+<stat pass="0" fail="1" skip="0">permissão</stat>
+<stat pass="1" fail="4" skip="0">todos_usuario_intranet</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Teste Cadastro Clientes">Teste Cadastro Clientes</stat>
+<stat pass="1" fail="4" skip="0" id="s1" name="Teste Usuario Intranet">Teste Usuario Intranet</stat>
 </suite>
 </statistics>
 <errors>
+<msg timestamp="20231212 14:56:03.943" level="ERROR">Error in file 'C:\Users\quems\Desktop\Fixpay_projetos_atualizados\portal-intranet\test_robot_framework\Resourcer\resourcer_usuario_intranet.robot' on line 8: Setting 'Suite Setup' is not allowed in resource file.</msg>
 </errors>
 </robot>
