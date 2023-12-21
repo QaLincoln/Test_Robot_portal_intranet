@@ -120,8 +120,12 @@ Então deletar users_intranet
 Quando inserir dados na tabela partners
     [Documentation]    Insere dados na tabela de exemplo.
     Conectar ao Banco de Dados
-    ${result}    Execute SQL String         INSERT INTO public.partners(id, social_reason, fantasy, cpf_cnpj, email, phone_number, active, created_at, updated_at) VALUES (70000, 'EMPRESA_TESTE', 'LOJA_TESTE', '03260703388', 'LOJA_TESTE1@GMAIL.COM', '985763057', TRUE, '2023-09-01 09:37:29.933072', '2023-09-01 09:37:29.933072');
+    ${result}    Execute SQL String         INSERT INTO public.partners(id, social_reason, fantasy, cpf_cnpj, email, phone_number, active, created_at, updated_at) VALUES (70000, 'EMPRESA_TESTE', 'LOJA_TESTE', '03260703388111', 'LOJA_TESTE1@GMAIL.COM', '985763057', TRUE, '2023-09-01 09:37:29.933072', '2023-09-01 09:37:29.933072');
 Então deletar partners
     [Documentation]    Deleta dados
     Conectar ao Banco de Dados
     ${result}        Execute SQL String     DELETE FROM public.partners WHERE id=70000
+Então deletar partners_clients
+    [Documentation]    Deleta dados
+    Conectar ao Banco de Dados
+    ${result}        Execute SQL String     DELETE FROM public.partner_clients WHERE partner_id=70000;

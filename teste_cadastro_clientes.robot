@@ -72,7 +72,7 @@ Caso de Teste 8: Testando todos os filtros: Filtro por parceiro
      [Tags]    parceiros
      Executar comando antes do teste
      Dado fazendo login          #puxa do arquivo../location.robot
-     Quando entrar na tela parceiros     #puxa do arquivo../location.robot
+     Quando entrar na tela cadastro_clientes      #puxa do arquivo../location.robot
      E deve consegui filtrar por parceiro
 
 

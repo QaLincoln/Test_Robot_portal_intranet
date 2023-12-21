@@ -3,16 +3,20 @@ Library    SeleniumLibrary
 Library    OperatingSystem
 
 *** Variables ***
-${URL}                           http://localhost:8080/auth/login
-${URL_PARCEIROS}                 http://localhost:8080/partners
-${URL_CADASTRO}                  http://localhost:8080/clients
-${URL_USUARIO}                   http://localhost:8080/intranet-users
 ${OPEN/CLOSE}                    //img[contains(@alt,'Open/Close')]
+
 ${SIDEBAR_CADASTRO}              //span[contains(.,'Cadastros')]
 ${SIDEBAR_CADASTRO_CLIENTES}     class=text-itens-sidebar
 ${SIDEBAR_PARCEIROS}             //span[@class='text-itens-sidebar'][contains(.,'Parceiros')]
 ${SIDEBAR_USUARIO}               (//span[contains(@class,'text-itens-sidebar')])[3]
+${SIDEBAR_PAGAMENTO}             //span[@class='text-sidebar'][contains(.,'Pagamentos')]
+${SIDEBAR_HISTORICO}             (//span[contains(.,'Histórico')])[1]
 
+${URL}                           http://localhost:8080/auth/login
+${URL_PARCEIROS}                 http://localhost:8080/partners
+${URL_CADASTRO}                  http://localhost:8080/clients
+${URL_USUARIO}                   http://localhost:8080/intranet-users
+${URL_HISTORICO}                 http://localhost:8080/payments/historys
 
 *** Keywords ***
 Abrir Site intranet
@@ -49,6 +53,7 @@ Quando entrar na tela parceiros
     Click Element                      locator=${SIDEBAR_PARCEIROS}
     Wait Until Page Contains           text=Bem-vindo ao intranet do Parcelaconta, RAFAEL PINHEIRO!
     Wait Until Location Is             expected=${URL_PARCEIROS}
+    Sleep    2
 
 Quando entrar na tela usuario_intranet
     Click Element                       locator=${OPEN/CLOSE}
@@ -58,6 +63,13 @@ Quando entrar na tela usuario_intranet
     Wait Until Page Contains            text=Bem-vindo ao intranet do Parcelaconta, RAFAEL PINHEIRO!
     Wait Until Location Is              expected=${URL_USUARIO}
     Sleep    2
-
+Quando entrar na tela historico_pagamento
+    Click Element                       locator=${OPEN/CLOSE}
+    Click Element                       locator=${SIDEBAR_PAGAMENTO}
+    Wait Until Element Is Visible       locator=${SIDEBAR_HISTORICO}
+    Click Element                       locator=${SIDEBAR_HISTORICO}
+    Wait Until Page Contains            text=Bem-vindo ao intranet do Parcelaconta, RAFAEL PINHEIRO!
+    Wait Until Location Is              expected=${URL_HISTORICO}
+    Sleep    2
 
 
