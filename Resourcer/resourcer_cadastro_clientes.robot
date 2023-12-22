@@ -17,7 +17,7 @@ Library         Process
 #BOTÔES
 ${APLICAR_FILTRO}       //button[contains(.,'Filtrar')]
 ${LIMPAR_FILTRO}        //button[contains(.,'Limpar')]
-${EXPORTAR_EXCEL}       //button[contains(.,'Exportar')]
+${EXPORTAR_EXCEL}       //button[contains(@id,'exportar')]
 
 #CAMPOS
 ${CAMPO_ID}             //input[contains(@placeholder,'INFORME O ID')]
@@ -57,9 +57,9 @@ Executar comando depois do teste
 #Caso de teste 1
 E deve consegui filtrar por id
     Wait Until Element Is Visible   locator=//span[@class='h2 d-block mb-0 titulo'][contains(.,'Clientes')]
-    Input Text                      locator=${CAMPO_ID}   text=50000
+    Input Text                      locator=${CAMPO_ID}   text=500000
     Click Element                   locator=${APLICAR_FILTRO}
-    Wait Until Page Contains        text=50000
+    Wait Until Page Contains        text=500000
     Click Element                   locator=${LIMPAR_FILTRO}
     Sleep    2
     Wait Until Element Is Visible       locator=//td[contains(.,'TesteLincoln')]
@@ -124,7 +124,7 @@ E deve consegui filtrar por datas
 Então deve consegui exporta arquivo   #Diretorio windons
     Sleep    2
     Click Element                       locator=${EXPORTAR_EXCEL}
-    Sleep    1
+    Sleep    5
     #File Should Exist           ${ARQUIVO_PATH}
     ${status1}    Run Process    python    excel.py
     ${status2}    Should Exist                ${ARQUIVO_PATH}

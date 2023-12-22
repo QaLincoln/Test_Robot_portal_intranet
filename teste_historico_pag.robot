@@ -35,3 +35,21 @@ Caso de Teste 5: Acessando a tela de Historico e filtar por método
     Dado fazendo login
     Quando entrar na tela historico_pagamento     #puxa do arquivo../location.robot
     Então deve conseguir filtrar por método
+
+Caso de Teste 6: Acessando a tela de Historico e filtar por tid
+    [Tags]    tid
+    Dado fazendo login
+    Quando entrar na tela historico_pagamento     #puxa do arquivo../location.robot
+    Então deve conseguir filtrar por tid
+
+Caso de Teste 7: Acessando a tela de Historico e filtar por datas
+    [Tags]    datas
+    Dado fazendo login
+    Quando entrar na tela historico_pagamento     #puxa do arquivo../location.robot
+    Então deve conseguir filtrar por data
+
+Caso de Teste 8: Acessando a tela de Historico e exportando arquivo
+    [Tags]    arquivo
+    Dado fazendo login
+    Quando entrar na tela historico_pagamento     #puxa do arquivo../location.robot
+    Então deve consegui exportar arquivo

@@ -19,13 +19,13 @@ Conectar ao Banco de Dados
 Quando inserir Dados na tabela clientes
     [Documentation]    Insere dados na tabela de exemplo.
     Conectar ao Banco de Dados
-    ${result}    Execute SQL String    INSERT INTO public.clients (id, cpf_cnpj, social_reason, fantasy, contact_name, email, active, phone_number, address_id, group_id, establishment_id, created_at, updated_at, status_caf, status_accreditation_id) VALUES(50000,032607033821,'TesteLincoln','teste', 'teste','teste@gmail.com', true,85985763075, 1, 1, 1, '2023-09-24', '2023-09-24' , 'APPROVED', 3)
+    ${result}    Execute SQL String    INSERT INTO public.clients (id, cpf_cnpj, social_reason, fantasy, contact_name, email, active, phone_number, address_id, group_id, establishment_id, created_at, updated_at, status_caf, status_accreditation_id) VALUES(500000,032607033821,'TesteLincoln','teste', 'teste','teste@gmail.com', true,85985763075, 1, 1, 1, '2023-09-24', '2023-09-24' , 'APPROVED', 3)
 #     Should Be Equal As Integers    ${result}    1
 
 Então deletar cliente
     [Documentation]    Deleta dados
     Conectar ao Banco de Dados
-    ${result}        Execute SQL String     DELETE FROM public.clients WHERE id=50000
+    ${result}        Execute SQL String     DELETE FROM public.clients WHERE id=500000
 #    Run Keyword And Ignore Error
 #    Run Keyword If  "${result}" == "FAIL"  Log  A exclusão falhou, mas continuando o teste
 #        ...  ELSE  Log  A exclusão foi bem-sucedida
@@ -100,7 +100,7 @@ Comparar Dados do Banco com totalizadores: Aceitos, Pendentes, Não_validados e 
 Quando inserir tabela partner_clients
     [Documentation]    Insere dados na tabela de exemplo.
     Conectar ao Banco de Dados
-    ${result}    Execute SQL String    INSERT INTO public.partner_clients(id, partner_id, client_email, client_id, created_at, updated_at, active) VALUES (100000, 70000, 'teste_partner@gmail.com', '50000', '0001-01-01 00:00:00', '0001-01-01 00:00:00', 'true');
+    ${result}    Execute SQL String    INSERT INTO public.partner_clients(id, partner_id, client_email, client_id, created_at, updated_at, active) VALUES (100000, 70000, 'teste_partner@gmail.com', '500000', '0001-01-01 00:00:00', '0001-01-01 00:00:00', 'true');
 Então deletar partner_clients
     [Documentation]    Deleta dados
     Conectar ao Banco de Dados

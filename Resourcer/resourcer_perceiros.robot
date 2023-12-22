@@ -16,7 +16,7 @@ ${URL_PARCEIROS}        http://localhost:8080/partners
 
 *** Keywords ***
 Executar comando antes do teste
-#    Então deletar partners_clients
+    Então deletar partners_clients
     Então deletar partners
     Quando inserir dados na tabela partners
 
